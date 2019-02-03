@@ -46,5 +46,19 @@ Currently available latest version 1.5 can be downloaded by following link https
  4) run run.bat\/run.sh depending on target OS
  5) application will be deployed in JBoss server on 8080 port
 
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+* **[Aron Smith](https://sourceforge.net/u/aron-smith/)** - *Initial work*
+
+See also the list of [contributors](https://github.com/osrmt/osrmt/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
  ## Tutorials
  https://www.youtube.com/watch?v=TisBqplJmF8
