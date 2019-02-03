@@ -1,0 +1,48 @@
+a
+body { 
+	font-family: Verdana;
+    font-size: 10pt;
+    background: white;
+    margin: 0px; 
+	min-height: 100%;
+	margin-left: 60px;
+	line-height: 16pt;
+	padding: 0px
+}
+
+.poem { 
+    display: block; 
+    white-space: pre;
+    font-size: 10pt;
+}
+
+body.indent {
+	margin-left: 180px
+}
+
+td {
+	font: 10pt verdana
+}
+
+
+p { 
+	margin-top: 0px; 
+	text-align: justify
+}
+
+a:link, a:visited {
+  color: #336699;
+  background: transparent;
+  text-decoration: underline
+}
+
+
+td.controllabel {
+	text-align: right
+}
+
+td.controltext {
+	text-align: left;
+	color: black
+}
+

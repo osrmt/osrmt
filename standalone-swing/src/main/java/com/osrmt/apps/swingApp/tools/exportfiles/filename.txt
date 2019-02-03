@@ -1,0 +1,4 @@
+importPackage(Packages.com.osrmt.modellibrary.reqmanager);
+
+s = "C:\\patientis\\website\\src\\documentation\\content\\xdocs\\functionality\\rm\\" + artifact.getArtifactId() + ".html";
+s;

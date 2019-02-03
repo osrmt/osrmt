@@ -1,0 +1,38 @@
+<!--  bean:message key="menu.operations"/>    -->
+<c:url value="/ArtifactTrace.do" var="traceurl">
+    <c:param name="productrefid" value="${productrefid}"/>
+</c:url>
+<c:url value="/ArtifactTraceability.do" var="traceurl2">
+    <c:param name="productrefid" value="${productrefid}"/>
+    <c:param name="level" value="first"/>
+</c:url>
+<c:url value="/BuildReport.do" var="buildreport">
+    <c:param name="productrefid" value="${productrefid}"/>
+    <c:param name="step" value="0"/>
+</c:url>
+
+<c:url value="/getFile.do" var="getFile">
+    
+</c:url>
+<table border="0">
+    
+    <tbody>
+        <tr>
+            <td><a target="detailFrame" href="<c:out value="${traceurl}"/>"><c:out value="View Trace"/></a></td>
+            <td><a target="detailFrame" href="<c:out value="${traceurl2}"/>"><c:out value="Traceability"/></a></td>
+
+            <td><a target="detailFrame" href="<c:out value="${buildreport}"/>"><c:out value="Reports"/></td>
+            <td><%--a target="detailFrame" href="<c:out value="${getFile}"/>"><c:out value="get File"/--%></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <%--tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr--%>
+    </tbody>
+</table>
+<bean:message key="menu.line"/>   <br/>

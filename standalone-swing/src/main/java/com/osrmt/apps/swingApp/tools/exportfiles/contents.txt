@@ -1,0 +1,80 @@
+importPackage(Packages.com.osrmt.modellibrary.reqmanager);
+importPackage(Packages.java.util);
+
+
+e1 = parents.elements();
+title = artifact.getArtifactName();
+links = "";
+if (e1.hasMoreElements()) {
+  var parent1 = e1.nextElement(); 
+  title = parent1.getArtifactName() + " - " + title;
+  links = "<a href=\"" + parent1.getArtifactId() + ".html\">" + parent1.getArtifactName() + "</a>\n";
+}
+if (e1.hasMoreElements()) {
+  parent2 = e1.nextElement(); 
+  title = parent2.getArtifactName() + " - " + title;
+  links = "<a href=\"" + parent2.getArtifactId() + ".html\">" + parent2.getArtifactName() + "</a>\n" + " " + links;
+}
+
+childlinks = "";
+e2 = children.elements();
+while (e2.hasMoreElements()) {
+   var child = e2.nextElement();
+   childlinks = childlinks + "<a href=\"" + child.getArtifactId() + ".html\">" + child.getArtifactName() + "</a>\n";
+}
+
+tracetolinks = "";
+e3 = traceto.elements();
+while (e3.hasMoreElements()) {
+   var traced = e3.nextElement();
+   tracetolinks = tracetolinks + "<a href=\"" + traced.getArtifactId() + ".html\">" + traced.getArtifactName() + "</a>\n";
+}
+
+tracefromlinks = "";
+e3 = tracefrom.elements();
+while (e3.hasMoreElements()) {
+   var tracedfrom = e3.nextElement();
+   tracefromlinks = tracefromlinks + "<a href=\"" + tracedfrom.getArtifactId() + ".html\">" + tracedfrom.getArtifactName() + "</a>\n";
+}
+
+header = artifact.getArtifactName() + " " + artifact.getPriorityRefDisplay();
+if (artifact.getVersionRefId() > 0) {
+  header = header + " Version " + artifact.getVersionRefDisplay();
+}
+
+s = "<html>" 
+  + "<head>"
+  + "<title>"
+  + title
+  + "</title>"
+  + "</head>"
+  + "<body>"
+  + "<h1>"
+  + header
+  + "</h1>"
+  + "<p>Parent Artifacts: "
+  + links
+  + "</p>";
+if (childlinks.length > 0) {
+  s = s + "<p>Child Artifacts: "
+  + childlinks
+  + "</p>"
+}
+if (tracetolinks.length > 0) {
+  s = s + "<p>Traces to: "
+  + tracetolinks
+  + "</p>"
+}
+if (tracefromlinks.length > 0) {
+  s = s + "<p>Traces from: "
+  + tracefromlinks
+  + "</p>"
+}
+s = s  + "<p>";
+if (artifact.getDescription() != null) {
+  s = s + artifact.getDescription().replace("\n","<br/>\n") 
+}
+  + "</p>"
+  + "</body>"
+  + "</html>";
+s;

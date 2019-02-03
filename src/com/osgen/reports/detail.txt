@@ -1,0 +1,110 @@
+package com.osrmt.modellibrary.reports;
+
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
+
+import com.osframework.framework.utility.FileProcess;
+import com.osframework.framework.utility.FileSystemUtil;
+import com.osframework.modellibrary.reportwriter.*;
+
+public class ArtifactDetailReport extends ReportBase {
+	
+	private Hashtable properties = new Hashtable();
+	public static String keySql = "sql";
+	// remember to add the style below
+	private ReportStyle styleNormal = new ReportStyle();
+	private ReportStyle styleGroup = new ReportStyle("group",10,true,false);
+	private ReportStyle styleHeader = new ReportStyle("header",8,false,true);
+	private ReportStyle styleGroupPage = new ReportStyle("groupPage",16,true,false);
+
+	public ArtifactDetailReport() {
+	}
+	
+	public ArtifactDetailReport(Hashtable properties) {
+		this.properties = properties;
+	}
+	
+	public static void main (String[] args) {
+		try {
+			ArtifactDetailReport report = new ArtifactDetailReport();
+			FileSystemUtil.createFile(!TARGETDIR!,
+					report.getContent());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String getContent() {
+		StringBuffer sb = new StringBuffer(1024);
+		sb.append(new ReportRoot());
+		ReportJasper report = new ReportJasper();
+		report.addChildren(getReportElements());
+		sb.append(report);
+		return sb.toString();
+	}
+	
+	public ReportElementList getReportElements() {
+		ReportElementList elements = new ReportElementList();
+		elements.addReportElement(new ReportProperties());
+		elements.addReportElement(styleNormal);
+		elements.addReportElement(styleGroup);
+		elements.addReportElement(styleHeader);
+		elements.addReportElement(styleGroupPage);
+		elements.addReportElement(new ReportQueryString(getSql()));
+		Enumeration e1 = getFieldList().elements();
+		while (e1.hasMoreElements()) {
+			ReportElement r = (ReportElement) e1.nextElement();
+			elements.addReportElement(r);
+		}
+		addGroups(elements);
+		
+		ReportBand headerBand = new ReportBand(35);
+		headerBand.addChildren(getHeaderFields());	
+		elements.addReportElement(new ReportPageHeader(headerBand));
+		
+		ReportBand band = new ReportBand(11);
+		band.addChildren(getTextFields());		
+		elements.addReportElement(new ReportDetail(band));
+		elements.addReportElement(new ReportPageFooter());
+		return elements;
+	}
+	
+	public void addGroups(ReportElementList elements) {
+		
+		!GROUPS!
+	}
+
+	public String getSql() {
+		if (properties.containsKey(keySql)) {
+			return properties.get(keySql).toString();
+		} else {
+			return "!SQL!";
+		}
+	}
+	 
+	!FIELDS!
+
+	public ReportElementList getFieldList() {
+		ReportElementList fields = new ReportElementList();
+		!REPORTELEMENTS!
+	
+		return fields;
+	}
+	
+	public ReportElementList getHeaderFields() {
+		ReportElementList textfields = new ReportElementList();
+		!HEADERFIELDS!
+
+		return textfields;
+	}
+
+	public ReportElementList getTextFields() {
+		ReportElementList textfields = new ReportElementList();
+		!TEXTFIELDS!
+
+		return textfields;
+	}
+	
+}

@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<!--
+     This is a blank Struts configuration file with an example
+     welcome action/page and other commented sample elements.
+
+     Tiles and the Struts Validator are configured using the factory defaults
+     and are ready-to-use.
+
+     NOTE: If you have a generator tool to create the corresponding Java classes
+     for you, you could include the details in the "form-bean" declarations.
+     Otherwise, you would only define the "form-bean" element itself, with the
+     corresponding "name" and "type" attributes, as shown here.
+-->
+
+
+<struts-config>
+    
+    <!-- ============================================ Data Source Configuration -->
+    <!--
+<data-sources>
+<data-source type="org.apache.commons.dbcp.BasicDataSource">
+    <set-property
+      property="driverClassName"
+      value="org.postgresql.Driver" />
+    <set-property
+      property="url"
+      value="jdbc:postgresql://localhost/mydatabase" />
+    <set-property
+      property="username"
+      value="me" />
+    <set-property
+      property="password"
+      value="test" />
+    <set-property
+      property="maxActive"
+      value="10" />
+    <set-property
+      property="maxWait"
+      value="5000" />
+    <set-property
+      property="defaultAutoCommit"
+      value="false" />
+    <set-property
+      property="defaultReadOnly"
+      value="false" />
+    <set-property
+      property="validationQuery"
+      value="SELECT COUNT(*) FROM market" />
+</data-source>
+</data-sources>
+-->
+    
+    <!-- ================================================ Form Bean Definitions -->
+
+    <form-beans>
+        <form-bean       name="LogonForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+        </form-bean>
+        <form-bean       name="productList"
+                         type="com.osrmt.www.artifact.ProductList">
+        </form-bean>
+        
+        <form-bean       name="ArtifactTreeForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="productrefid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="issuetyperefid" type="java.lang.Integer"/>
+        </form-bean>
+        
+        <form-bean       name="ArtifactDetailForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+            <form-property name="issuetyperefid" type="java.lang.Integer"/>
+        </form-bean>
+        
+        <form-bean       name="SaveArtifactForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean       name="IssueDetailForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="issueid" type="java.lang.Integer"/>
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="issuetyperefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean       name="SaveIssueForm"
+                         type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="issueid" type="java.lang.Integer"/>
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="issuetyperefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="ArtifactTraceActionForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="productrefid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="from" type="java.lang.String"/>
+            <form-property name="to" type="java.lang.String"/>
+            <form-property name="traceType" type="java.lang.String"/>
+            <form-property name="action" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="ArtifactTraceabilityActionForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="productrefid" type="java.lang.Integer"/>
+            <form-property name="level" type="java.lang.String"/>
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="frompool" type="java.lang.Integer"/>
+            <form-property name="topool" type="java.lang.Integer"/>
+            <form-property name="fromartifact" type="java.lang.Integer"/>
+            <form-property name="toartifact" type="java.lang.Integer"/>
+            <form-property name="traceType" type="java.lang.String"/>
+            <form-property name="action" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="BuildReportActionForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="productrefid" type="java.lang.Integer"/>
+            <form-property name="reportid" type="java.lang.Integer"/>
+            <form-property name="fileName" type="java.lang.String"/>
+            <form-property name="step" type="java.lang.String"/>
+            <form-property name="mail" type="java.lang.String"/>
+            <form-property name="params" type="com.osrmt.www.reports.Parameter[]"/>
+            <form-property name="type" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="OpenAttachmentActionForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="recordfileid" type="java.lang.Integer"/>
+        </form-bean>
+        
+        <form-bean name="TestActionForm" type="com.osrmt.www.custom.TestActionForm"/>
+        
+        <form-bean name="AddAttachmentForm" type="com.osrmt.www.artifact.AddAttachmentActionForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+            <form-property name="dir" type="java.lang.String"/>
+            <form-property name="attachmentFile" type="java.lang.String"/>
+            <form-property name="attachmentF" type="org.apache.struts.upload.FormFile"/>
+            <form-property name="filename" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="AddAttachment2Form" 
+                   type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+            <!--form-property name="dir" type="java.lang.String"/>
+            <form-property name="attachmentFile" type="java.lang.String"/-->
+            <form-property name="attachmentF" type="org.apache.struts.upload.FormFile"/>
+            <form-property name="urllink" type="java.lang.String"/>
+            <form-property name="description" type="java.lang.String"/>
+            <form-property name="filename" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="InsertLinkForm" 
+                   type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+            <!--form-property name="dir" type="java.lang.String"/-->
+
+            <form-property name="urllink" type="java.lang.String" initial="http://www.ptc.com"/>
+            <form-property name="filename" type="java.lang.String" initial="File_name"/>
+            <form-property name="description" type="java.lang.String" initial="Some description...."/>            
+            
+            
+        </form-bean>
+        
+        <form-bean name="ListAttachmentsForm" 
+                   type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="crud" type="java.lang.String"/>
+            <!--form-property name="dir" type="java.lang.String"/>
+            <form-property name="attachmentFile" type="java.lang.String"/-->
+            <form-property name="attachmentF" type="org.apache.struts.upload.FormFile"/>
+            <form-property name="urllink" type="java.lang.String"/>
+            <form-property name="description" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="SendMailActionForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="emailAddressTo" initial=""  type="java.lang.String" />
+            
+            <form-property name="subject" type="java.lang.String" initial="Report from capabilities repository... "/>
+            <form-property name="messageBody" type="java.lang.String" initial="Hello!!! "/>
+            <form-property name="filename2" type="java.lang.String" initial="plik.txt"/>
+            
+            
+                   </form-bean>
+        <form-bean name="UseCaseStepsForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="productrefid" type="java.lang.Integer"/>
+        </form-bean>
+        
+        <form-bean name="TestCaseStepsForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="artifactid" type="java.lang.Integer"/>
+            <form-property name="parentartifactid" type="java.lang.Integer"/>
+            <form-property name="artifactrefid" type="java.lang.Integer"/>
+            <form-property name="productrefid" type="java.lang.Integer"/>
+        </form-bean>
+        
+    </form-beans>
+    
+    
+    <!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        <!-- sample exception handler
+        <exception
+            key="expired.password"
+            type="app.ExpiredPasswordException"
+            path="/changePassword.jsp"/>
+        end sample -->
+    </global-exceptions>
+    
+    
+    <!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <forward name="Errors" path="/custom/Errors.jsp"/>
+        <forward name="test" path="/artifact/fileAttached.jsp"/>
+        <forward name="fileAttached" path="/artifact/fileAttached.jsp"/>
+        <!-- Default forward to "Welcome" action -->
+        <!-- Demonstrates using index.jsp to forward -->
+        <forward
+            name="welcome"
+            path="/Logon.do"/>
+        <forward name="logon" path="/Logon.do"/>
+        <forward name="invalidlogon" path="/InvalidLogon.do"/>
+        <forward name="success" path="/MainMenu.do"/>
+        <forward name="tree" path="/ViewArtifactTree.do"/>
+        <forward name="artifactdetail" path="/ViewArtifact.do"/>
+        <forward name="artifactupdated" path="/ArtifactUpdated.do"/>
+        <forward name="notloggedinexception" path="/InvalidLogon.do"/>
+        <forward name="issuedetail" path="/ViewIssue.do"/>
+        <forward name="attachmentListForward" path="/artifact/attachments.jsp"/>
+    </global-forwards>
+    
+    
+    <!-- =========================================== Action Mapping Definitions -->
+
+    <action-mappings>
+        <!-- Default "Welcome" action -->
+        <!-- Forwards to Welcome.jsp -->
+        <action
+            path="/Welcome"
+            forward="/pages/Welcome.jsp"/>
+        
+        <!-- Display logon page -->
+        <action    path="/Logon"
+                   forward="/logon.jsp"/>
+        
+        <!-- Process a user logon -->
+        <action    path="/SubmitLogon"
+                   type="com.osrmt.www.common.LogonAction"
+                   name="LogonForm"
+                   scope="request"
+                   input="logon">
+            <set-property property="cancellable" value="true"/>
+            <exception
+                key="expired.password"
+                type="com.osrmt.www.common.ExpiredPasswordException"
+                path="/ExpiredPassword.do"/>
+        </action>
+        
+        <!-- Display the change password page when a password expires -->
+        <action    path="/ExpiredPassword"
+                   forward="/changePassword.jsp">
+        </action>
+        
+        <!-- Display the change password page when a password expires -->
+        <action    path="/InvalidLogon"
+                   forward="/invalidLogon.jsp">
+        </action>
+        
+        <!-- Display logon page -->
+        <action    path="/MainMenu"
+                   forward="/productList.jsp"
+                   name="productList"
+        />
+        
+        <action    path="/ArtifactTree"
+                   type="com.osrmt.www.artifact.ArtifactTreeAction"
+                   name="ArtifactTreeForm"
+                   scope="request"
+        />
+        
+        <action    path="/ViewArtifactTree"
+                   forward="/artifact/artifactTree.jsp"/>
+        
+        <action    path="/ArtifactDetail"
+                   type="com.osrmt.www.artifact.ArtifactDetailAction"
+                   name="ArtifactDetailForm"
+                   scope="request"
+        />
+        
+        <action    path="/ViewArtifact"
+                   forward="/artifact/artifactDetail.jsp"/>
+        
+        <action    path="/SaveArtifact"
+                   type="com.osrmt.www.artifact.SaveArtifactAction"
+                   name="SaveArtifactForm"
+                   scope="request">
+        </action>
+        
+        <action    path="/ArtifactUpdated"
+                   forward="/artifact/artifactUpdated.jsp"/>
+        
+        <action    path="/IssueDetail"
+                   type="com.osrmt.www.issue.IssueDetailAction"
+                   name="IssueDetailForm"
+                   scope="request"
+        />
+        
+        <action    path="/ViewIssue"
+                   forward="/issue/issueDetail.jsp"/>
+        
+        <action    path="/SaveIssue"
+                   type="com.osrmt.www.issue.SaveIssueAction"
+                   name="SaveIssueForm"
+                   scope="request">
+        </action>
+        
+        <action    path="/IssueUpdated"
+                   forward="/issue/issueUpdated.jsp"/>
+        
+        <action    path="/ClearCache"
+                   type="com.osrmt.www.ClearCacheAction"
+                   scope="request">
+        </action>
+        
+        <action     input="/artifact/artifactTrace.jsp" 
+                    name="ArtifactTraceActionForm" 
+                    path="/ArtifactTrace" 
+                    scope="request" 
+                    type="com.osrmt.www.artifact.ArtifactTraceAction">
+            <forward name="success" path="/artifact/artifactTrece.jsp"/>
+        </action>
+        
+        <action     input="/artifact/artifactTraceability.jsp" 
+                    name="ArtifactTraceabilityActionForm" 
+                    path="/ArtifactTraceability" 
+                    scope="request" 
+                    type="com.osrmt.www.artifact.ArtifactTraceabilityAction">
+            <forward name="success" path="/artifact/artifactTraceability.jsp"/>
+        </action>    
+        
+        <action     input="/reports/buildReport.jsp" 
+                    name="BuildReportActionForm" 
+                    path="/BuildReport" 
+                    scope="session" 
+                    type="com.osrmt.www.reports.BuildReportAction">
+            <forward name="success" path="/reports/buildReport.jsp"/>
+        </action>        
+        
+        <action     input="/artifact/openAttachment.jsp" 
+                    name="OpenAttachmentActionForm" 
+                    path="/OpenAttachment" 
+                    scope="session" 
+                    type="com.osrmt.www.artifact.OpenAttachmentAction">
+            <forward name="success" path="/artifact/openAttachment.jsp"/>
+        </action>        
+        
+        <action     path="/InsertLink" 
+                    input="/custom/Errors.jsp" 
+                    name="InsertLinkForm"  
+                    scope="request" 
+                    type="com.osrmt.www.artifact.InsertLinkAction">
+            
+            <forward name="linkinserted" path="/artifact/linkInserted.jsp"/>
+        </action>
+        <action     path="/ListAttachments" 
+                    input="/custom/Errors.jsp" 
+                    
+                    scope="request" 
+                    type="com.osrmt.www.artifact.ListAttachmentsAction">
+            
+        </action>
+        
+        <action     path="/SendMail" 
+                    input="/reports/buildReport.jsp" 
+                    name="SendMailActionForm" 
+                    scope="request" 
+                    type="com.osrmt.www.reports.SendMailAction">
+            <forward name="mailSend" path="/reports/sendMail.jsp"/>
+            <forward name="fileNotFound" path="/custom/Errors.jsp"/>
+        </action>
+        
+        <action input="/artifact/UseCaseSteps.jsp" name="UseCaseStepsForm" path="/UseCaseSteps" scope="request" type="com.osrmt.www.artifact.UseCaseStepsAction">
+            <forward name="success" path="/artifact/UseCaseSteps.jsp"/>
+        </action>
+        
+        <action input="/artifact/TestCaseSteps.jsp" name="TestCaseStepsForm" path="/TestCaseSteps" scope="request" type="com.osrmt.www.artifact.TestCaseStepsAction">
+            <forward name="success" path="/artifact/TestCaseSteps.jsp"/>
+        </action>
+        
+        <action     path="/sendFile" 
+                    forward="/reports/sendFile.jsp" />
+        
+        
+        <action     path="/Test" 
+                    input="/custom/Errors.jsp" 
+                    name="TestActionForm" 
+                    scope="request" 
+                    type="com.osrmt.www.custom.TestAction"/>
+        <action forward="/artifact/fileAttached.jsp" path="/FileAttached2"/>
+        
+        <action     path="/AddAttachment"
+                    name="AddAttachment2Form" 
+                    scope="request" 
+                    input="/custom/Errors.jsp"
+                    type="com.osrmt.www.artifact.AddAttachmentAction"/>
+        
+    </action-mappings>
+    
+    
+    <!-- ============================================= Controller Configuration -->
+
+    <controller
+        processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    
+    
+    <!-- ======================================== Message Resources Definitions -->
+
+    <message-resources parameter="MessageResources" />
+    
+    
+    <!-- =============================================== Plug Ins Configuration -->
+
+    <!-- ======================================================= Tiles plugin -->
+    <!--
+     This plugin initialize Tiles definition factory. This later can takes some
+	 parameters explained here after. The plugin first read parameters from
+	 web.xml, thenoverload them with parameters defined here. All parameters
+	 are optional.
+     The plugin should be declared in each struts-config file.
+       - definitions-config: (optional)
+            Specify configuration file names. There can be several comma
+		    separated file names (default: ?? )
+       - moduleAware: (optional - struts1.1)
+            Specify if the Tiles definition factory is module aware. If true
+            (default), there will be one factory for each Struts module.
+			If false, there will be one common factory for all module. In this
+            later case, it is still needed to declare one plugin per module.
+            The factory will be initialized with parameters found in the first
+            initialized plugin (generally the one associated with the default
+            module).
+			  true : One factory per module. (default)
+			  false : one single shared factory for all modules
+	   - definitions-parser-validate: (optional)
+	        Specify if xml parser should validate the Tiles configuration file.
+			  true : validate. DTD should be specified in file header (default)
+			  false : no validation
+
+	  Paths found in Tiles definitions are relative to the main context.
+  -->
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        
+        <!-- Path to XML definition file -->
+        <set-property property="definitions-config"
+                      value="/WEB-INF/tiles-defs.xml" />
+        <!-- Set Module-awareness to true -->
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    
+    <!-- =================================================== Validator plugin -->
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+    
+</struts-config>
+
