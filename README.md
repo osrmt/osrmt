@@ -8,7 +8,6 @@ Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/o
 
 ### Development requirements
  - JDK 1.5+
- - IDE
  - Database server, one of the following: MySQL, Oracle, Postgres, MS Sql, MS Access
  - Maven, version 3.0+
  - GIT client.
@@ -40,7 +39,7 @@ Currently available latest version 1.5 can be downloaded by following link https
  10) run run.bat\/run.sh depending on target OS
 
 #### Web
- 1) pass 1-4 steps from Desktop installation process if you haven't passed them yet
+ 1) follow 1-4 steps from Desktop installation process if you haven't passed them yet
  2) go to installation folder -> 'server\jboss-4.0.3\bin'
  3) configure connection.xml configuration file according to DB you've set up (or copy connection.xml file from client/connection.xml if Desktop application had been already configured)
  4) run run.bat\/run.sh depending on target OS
@@ -58,7 +57,5 @@ See also the list of [contributors](https://github.com/osrmt/osrmt/contributors)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU Gpl License - see the [LICENSE](LICENSE) file for details
 
- ## Tutorials
- https://www.youtube.com/watch?v=TisBqplJmF8
