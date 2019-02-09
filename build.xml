@@ -180,7 +180,7 @@
 			<fileset dir="${web.app.root}"/>
 		</copy>		
 	</target>
-	<target name="web.app.build" depends="web.app.server.copy">
+	<target name="web.app.assemble" depends="web.app.server.copy">
 		<!-- Use touch to set modification time of all stubs to current time. This will force zip task to update stub files inside the zip -->
 		<tstamp> <format property="touch.time" pattern="MM/dd/yyyy hh:mm aa"/>  </tstamp>
 		<touch datetime="${touch.time}">
