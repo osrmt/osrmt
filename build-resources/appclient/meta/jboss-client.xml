@@ -1,0 +1,39 @@
+<jboss-client>
+   <jndi-name>osrmt-client</jndi-name>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/ReferenceMap</ejb-ref-name>
+      <jndi-name>ReferenceMapName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/Security</ejb-ref-name>
+      <jndi-name>SecurityName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/RequirementManager</ejb-ref-name>
+      <jndi-name>RequirementManagerName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/System</ejb-ref-name>
+      <jndi-name>SystemName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/ReportWriter</ejb-ref-name>
+      <jndi-name>ReportWriterName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/RequirementReference</ejb-ref-name>
+      <jndi-name>RequirementReferenceName</jndi-name>
+   </ejb-ref>
+
+   <ejb-ref>
+      <ejb-ref-name>ejb/Issue</ejb-ref-name>
+      <jndi-name>IssueName</jndi-name>
+   </ejb-ref>
+
+</jboss-client>

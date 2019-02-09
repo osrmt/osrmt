@@ -1,3 +1,7 @@
+# Ant build directories
+dist
+dist/*
+
 # Compiled class file
 *.class
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<java version="1.5.0_04" class="java.beans.XMLDecoder">
+ 
+ <object class="com.osframework.datalibrary.common.ConnectionProperty">
+ 
+  <void property="accessSequence">
+ 
+   <int>0</int>
+ 
+  </void>
+ 
+  <void property="active">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="connectionType">
+ 
+   <string>Jdbc</string>
+ 
+  </void>
+ 
+  <void property="connectToURL">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="driverClass">
+ 
+   <string>com.mysql.jdbc.Driver</string>
+ 
+  </void>
+ 
+  <void property="environment">
+ 
+   <string>mysql</string>
+ 
+  </void>
+ 
+  <void property="url">
+ 
+   <string>jdbc:mysql://localhost/osrmt</string>
+ 
+  </void>
+ 
+  <void property="unicodeConnection">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="username">
+ 
+   <string>osrmt</string>
+ 
+  </void>
+ 
+  <void property="password">
+ 
+   <string>osrmt</string>
+ 
+  </void>
+ 
+ </object>
+
+</java> 

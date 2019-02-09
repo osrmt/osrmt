@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<java version="1.5.0_04" class="java.beans.XMLDecoder">
+ 
+ <object class="com.osframework.datalibrary.common.ConnectionProperty">
+ 
+  <void property="accessSequence">
+ 
+   <int>0</int>
+ 
+  </void>
+ 
+  <void property="active">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="connectionType">
+ 
+   <string>J2ee</string>
+ 
+  </void>
+ 
+  <void property="connectToURL">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="driverClass">
+ 
+   <string></string>
+ 
+  </void>
+ 
+  <void property="environment">
+ 
+   <string>J2ee</string>
+ 
+  </void>
+ 
+  <void property="url">
+ 
+   <string></string>
+ 
+  </void>
+ 
+  <void property="unicodeConnection">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="username">
+ 
+   <string></string>
+ 
+  </void>
+ 
+  <void property="password">
+ 
+   <string></string>
+ 
+  </void>
+ 
+ </object>
+ 
+</java> 

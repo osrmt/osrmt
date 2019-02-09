@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<java version="1.5.0_04" class="java.beans.XMLDecoder">
+  
+ <object class="com.osframework.datalibrary.common.ConnectionProperty">
+ 
+  <void property="accessSequence">
+ 
+   <int>0</int>
+ 
+  </void>
+ 
+  <void property="active">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="connectionType">
+ 
+   <string>Jdbc</string>
+ 
+  </void>
+ 
+  <void property="connectToURL">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="driverClass">
+ 
+   <string>oracle.jdbc.OracleDriver</string>
+ 
+  </void>
+ 
+  <void property="unicodeConnection">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="environment">
+ 
+   <string>oracle</string>
+ 
+  </void>
+ 
+  <void property="url">
+ 
+   <string>jdbc:oracle:thin:osrmt/osrmt@192.168.1.105:1521:admin</string>
+ 
+  </void>
+ 
+  <void property="username">
+ 
+   <string>osrmt</string>
+ 
+  </void>
+ 
+  <void property="password">
+ 
+   <string>osrmt</string>
+ 
+  </void>
+ 
+ </object>
+</java> 
