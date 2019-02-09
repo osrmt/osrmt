@@ -8,8 +8,9 @@ Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/o
 
 ### Development requirements
  - JDK 1.5+
+ - Eclipse (as of now project is configured for Eclipse IDE)
  - Database server, one of the following: MySQL, Oracle, Postgres, MS Sql, MS Access
- - Maven, version 3.0+
+ - Ant
  - GIT client.
 
 ## Getting started
