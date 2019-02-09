@@ -42,7 +42,7 @@
 		<delete dir="${desktopDist}"/>
 	</target>
 	<target name="compile-desktop" depends="init-desktop">
-		<javac includeantruntime="false" srcdir="${src}" destdir="${jarBuild}" excludes="com\osrmt\www,com\osrmt\www\**">
+		<javac includeantruntime="false" srcdir="${src}" destdir="${jarBuild}"> <!--  excludes="com\osrmt\www,com\osrmt\www\**" -->
 			<classpath refid="desktop-build-classpath"/>
 		</javac>
 	</target>
@@ -95,7 +95,7 @@
 	</target>
 	<target name="build-ejb" depends="clean-ejb">
 		<mkdir dir="${ejbBuild}"/>
-		<javac includeantruntime="false" srcdir="${ejbSrc}" destdir="${ejbBuild}"  excludes="com\osrmt\www,com\osrmt\www\**,com\osrmt\appclient,com\osrmt\appclient\**">
+		<javac includeantruntime="false" srcdir="${ejbSrc}" destdir="${ejbBuild}"  excludes="com\osrmt\www,com\osrmt\www\**,com\osrmt\appclient,com\osrmt\appclient\**"> <!--  -->
 			<classpath refid="app-client-build-classpath"/>
 		</javac>
 
@@ -149,7 +149,7 @@
 		</ear>
 	</target>
 
-	<target name="clean-web"> <!--  depends="build-ear" -->
+	<target name="clean-web" depends="build-ear"> <!--  depends="build-ear" -->
 		<delete dir="${webDist}"/>
 	</target>
 	<target name="copy-jboss" depends="clean-web">
@@ -166,7 +166,12 @@
 		</touch>
 		<zip destfile="${webDist}/jboss-4.0.3.zip" update="true">
 			<zipfileset dir="${earDist}" prefix="jboss-4.0.3\server\default\deploy"/>
+			<zipfileset dir="C:\dev\osrmt\ear-lib" prefix="jboss-4.0.3\server\default\lib" includes="jasperreports-1.3.1.jar"/>
+			<zipfileset dir="C:\dev\osrmt\common-resources" prefix="jboss-4.0.3\bin"/>
+			<zipfileset dir="${jarDist}" prefix="jboss-4.0.3\server\default\lib"/>
 		</zip>
 	</target>
 	<!-- END WEB APPLICATION BUILD -->
+	<!-- TODO delete all intermediate folders -->
+	<!-- TODO copy libs and resources to sources folder in order to avoid fully specified paths -->
 </project>
