@@ -1,0 +1,172 @@
+<project name="osrmt" default="dist" basedir=".">
+  <description>
+    OSRMT build
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="warSrc" location="src\com\osrmt\www"/>
+  <property name="warBuild" location="war-build"/>
+  <property name="ejbSrc" location="src"/>
+  <property name="ejbBuild" location="ejb-build"/>
+  <property name="jarBuild" location="jar-build"/>
+  <property name="dist" location="dist"/>
+  <property name="ejbDist" location="${dist}/ejb"/>
+  <property name="jarDist" location="${dist}/jar"/>
+  <property name="warDist" location="${dist}/war"/>
+  <property name="webDist" location="${dist}/web"/>
+  <property name="desktopDist" location="${dist}/desktop"/>
+
+	
+	<!-- START DESKTOP APPLICATION BUILD -->
+	<path id="desktop-build-classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="C:\dev\osrmt\output\lib">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\trunk\tools\jboss-4.0.3\client">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\ear-lib">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	</path>
+
+	<target name="init-delete-desktop">
+		<delete dir="${jarBuild}"/>
+		<delete dir="${jarDist}"/>
+	</target>
+	<target name="init-desktop" depends="init-delete-desktop">
+		<mkdir dir="${jarBuild}"/>
+		<mkdir dir="${jarDist}"/>
+		<delete dir="${desktopDist}"/>
+	</target>
+	<target name="compile-desktop" depends="init-desktop">
+		<javac includeantruntime="false" srcdir="${src}" destdir="${jarBuild}" excludes="com\osrmt\www,com\osrmt\www\**">
+			<classpath refid="desktop-build-classpath"/>
+		</javac>
+	</target>
+	<target name="build-desktop" depends="compile-desktop">
+		<jar jarfile="${jarDist}/app-client.jar" basedir="${jarBuild}">
+			<metainf dir="C:\dev\osrmt\trunk\resources\appclient-meta"/>
+			<manifest>
+				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
+			</manifest>
+		</jar>
+	</target>
+	<target name="build-desktop-runnable-zip" depends="build-desktop">
+		<mkdir dir="${desktopDist}"/>
+		<copy todir="${desktopDist}">
+			<fileset dir="C:\dev\osrmt\jar-resources"/>
+			<fileset dir="${jarDist}"/>
+			<fileset dir="C:\dev\osrmt\jar-libs"/>
+		</copy>
+		
+		<zip destfile="${dist}/desktop-app.zip">
+			<zipfileset dir="${desktopDist}"/>
+		</zip>
+		
+		<delete dir="${desktopDist}"/>
+		<delete dir="${jarBuild}"/>
+	</target>
+	<!-- END DESKTOP APPLICATION BUILD -->
+
+	<!-- START WEB APPLICATION BUILD -->
+	<path id="app-client-build-classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="C:\dev\osrmt\output\lib">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\trunk\tools\jboss-4.0.3\client">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\trunk\lib">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	  <fileset dir="${jarDist}">
+		<include name="*.jar"/>
+	  </fileset>
+	</path>
+	
+	<target name="clean-ejb">
+		<delete dir="${ejbDist}"/>
+		<delete dir="${ejbBuild}"/>
+	</target>
+	<target name="build-ejb" depends="clean-ejb">
+		<mkdir dir="${ejbBuild}"/>
+		<javac includeantruntime="false" srcdir="${ejbSrc}" destdir="${ejbBuild}"  excludes="com\osrmt\www,com\osrmt\www\**,com\osrmt\appclient,com\osrmt\appclient\**">
+			<classpath refid="app-client-build-classpath"/>
+		</javac>
+
+		<mkdir dir="${ejbDist}"/>
+		<jar jarfile="${ejbDist}/osrmt-ejb.jar" basedir="${ejbBuild}">
+			<metainf dir="C:\dev\osrmt\trunk\resources\ejb-meta"/>
+			<fileset dir="C:\dev\osrmt\ejb-resources"/>
+		</jar>
+		<delete dir="${ejbBuild}"/>
+	</target>
+
+	<path id="ejb-build-classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="C:\dev\osrmt\output\lib">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\trunk\tools\jboss-4.0.3\client">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="C:\dev\osrmt\trunk\lib">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	  <pathelement location="${jarDist}\app-client.jar"/>
+	  <pathelement location="${ejbDist}\osrmt-ejb.jar"/>
+	</path>
+
+	<target name="clean-war">
+		<delete dir="${warDist}"/>
+	</target>
+	<target name="build-war" depends="clean-war">
+		<mkdir dir="${warDist}"/>
+		<war destfile="${warDist}/osrmt.war" webxml="${warSrc}/WEB-INF/web.xml">
+			<fileset dir="${warSrc}"/>
+			<lib dir="${jarDist}"></lib>
+		</war>
+	</target>
+
+	<target name="copy-ear-libs" depends="build-desktop,build-ejb,build-war">
+		<copy todir="C:\dev\osrmt\ear-lib">
+		  <fileset dir="${jarDist}"/>
+		  <fileset dir="${ejbDist}"/>
+		  <fileset dir="${warDist}"/>
+		</copy>
+		<delete dir="${earDist}"/>
+	</target>
+	<target name="build-ear" depends="copy-ear-libs">
+		<mkdir dir="${earDist}"/>
+		<ear destfile="${earDist}/osrmt.ear" appxml="C:\dev\osrmt\trunk\resources\ear-meta\application.xml">
+			<fileset dir="C:\dev\osrmt\ear-lib" includes="*.jar,*.war,*.zip"/>
+		</ear>
+	</target>
+
+	<target name="clean-web"> <!--  depends="build-ear" -->
+		<delete dir="${webDist}"/>
+	</target>
+	<target name="copy-jboss" depends="clean-web">
+		<mkdir dir="${webDist}"/>
+		<copy todir="${webDist}">
+			<fileset dir="C:\dev\osrmt\jboss"/>
+		</copy>		
+	</target>
+	<target name="build-web-server" depends="copy-jboss">
+		<!-- Use touch to set modification time of all stubs to current time. This will force zip task to update stub files inside the zip -->
+		<tstamp> <format property="touch.time" pattern="MM/dd/yyyy hh:mm aa"/>  </tstamp>
+		<touch datetime="${touch.time}">
+			<fileset dir="${earDist}" />
+		</touch>
+		<zip destfile="${webDist}/jboss-4.0.3.zip" update="true">
+			<zipfileset dir="${earDist}" prefix="jboss-4.0.3\server\default\deploy"/>
+		</zip>
+	</target>
+	<!-- END WEB APPLICATION BUILD -->
+</project>
