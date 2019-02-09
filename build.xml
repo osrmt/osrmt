@@ -31,6 +31,8 @@
   <property name="ejb.meta" location="${ejb.root}/meta"/>
   <property name="ejb.resources" location="${ejb.root}/resources"/>
 
+  <property name="db.root" location="build-resources/db"/>
+
   <property name="ear.root" location="build-resources/ear"/>
   <property name="ear.meta" location="${ear.root}/meta"/>
 
@@ -84,6 +86,7 @@
 			<fileset dir="${app.client.dist}"/>
 			<fileset dir="${common.runtime.libs}"/>
 			<fileset dir="${common.compile.libs}"/>
+			<fileset dir="${db.root}"/>
 		</copy>
 		
 		<zip destfile="${dist}/desktop.app.zip">
@@ -191,6 +194,7 @@
 			<zipfileset dir="${common.resources}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${ear.dist}" prefix="jboss-4.0.3/server/default/deploy"/>
 			<zipfileset dir="${app.client.dist}" prefix="jboss-4.0.3/server/default/lib"/>
+			<zipfileset dir="${db.root}" prefix="dbscripts"/>
 		</zip>
 	</target>
 	<!-- END WEB APPLICATION BUILD -->
