@@ -14,17 +14,20 @@ Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/o
  - GIT client.
 
 ## Getting started
-Currently available latest version 1.5 can be downloaded by following link https://sourceforge.net/projects/osrmt/files/latest/download
+Currently available latest version 1.6 can be downloaded by one of the following links:
+https://github.com/osrmt/osrmt/blob/release/v1.6/build/desktop.app_v1.6.zip - desktop standalone application
+https://github.com/osrmt/osrmt/blob/release/v1.6/build/web.app_v1.6.zip - web application
 
 ### Pre-installation requirements
  - Windows, Linux or MacOS
+ - Achiver (winrar, 7-Zip, etc)
  - Installed JRE 1.5+
  - Installed DB server, one of the following: MySQL, Oracle, Postgres, MS Sql, MS Access
 
 ### Installation process
- - unzip downloaded archive
- - from extracted folder run command 'java -jar osrmt15.jar'
- - proceed by steps in installation wizard.
+#### Desktop/Web app
+ 1) Download the build
+ 2) Unzip archive
 
 ### Configuration
 #### Desktop
