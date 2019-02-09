@@ -19,6 +19,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.osframework.appclient.services.*;
 import com.osframework.appclient.ui.common.*;
+import com.osframework.appclient.ui.common.SwingWorker;
 import com.osframework.appclient.ui.listeners.*;
 import com.osframework.appclient.ui.components.*;
 import com.osframework.appclient.ui.controls.*;

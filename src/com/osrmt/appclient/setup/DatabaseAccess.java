@@ -2,6 +2,7 @@ package com.osrmt.appclient.setup;
 
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class DatabaseAccess implements Driver {
 	
@@ -26,6 +27,11 @@ public class DatabaseAccess implements Driver {
 		}
 		public boolean jdbcCompliant() {
 			return this.driver.jdbcCompliant();
+		}
+		@Override
+		public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 }

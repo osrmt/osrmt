@@ -19,6 +19,7 @@ import com.osframework.framework.utility.TimedAction;
 import com.osframework.appclient.services.ReferenceServices;
 import com.osframework.appclient.services.SecurityServices;
 import com.osframework.appclient.ui.common.*;
+import com.osframework.appclient.ui.common.SwingWorker;
 import com.osframework.appclient.ui.components.*;
 import com.osframework.appclient.ui.controls.UIProperties;
 import com.osframework.modellibrary.common.*;

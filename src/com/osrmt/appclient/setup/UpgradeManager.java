@@ -6,8 +6,8 @@ import java.io.*;
 import com.osframework.datalibrary.common.ConnectionProperty;
 import com.osrmt.modellibrary.reference.group.RelationGroup;
 import com.osrmt.modellibrary.reqmanager.*;
-import com.osupgrade.utility.SerializeUtility;
-import com.osupgrade.model.*;
+// import com.osupgrade.utility.SerializeUtility;
+// import com.osupgrade.model.*;
 
 
 public class UpgradeManager extends ConsoleManager {
@@ -30,9 +30,9 @@ public class UpgradeManager extends ConsoleManager {
 			return;
 		}
 		
-		migrate(target);
+		//migrate(target);
 	}
-	
+	/*
 	private void migrate(ConnectionProperty target) throws Exception {
 		File file = new File("updatelist.bin");
 		if (file.exists()) {
@@ -73,6 +73,6 @@ public class UpgradeManager extends ConsoleManager {
 		cp.setUrl(target.getUrl());
 		cp.setUsername(target.getUsername());
 		return new com.osupgrade.db.common.JDBCAccess(cp);
-	}
+	}*/
 }
 

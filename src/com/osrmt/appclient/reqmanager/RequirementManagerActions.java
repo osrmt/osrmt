@@ -26,6 +26,7 @@ import com.osframework.appclient.services.SecurityServices;
 import com.osframework.appclient.services.SystemServices;
 import com.osframework.appclient.system.SystemLogForm;
 import com.osframework.appclient.ui.common.*;
+import com.osframework.appclient.ui.common.SwingWorker;
 import com.osframework.appclient.ui.components.*;
 import com.osframework.appclient.ui.controls.*;
 import com.osframework.appclient.ui.listeners.DoubleClickListener;
