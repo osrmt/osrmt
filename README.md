@@ -13,7 +13,18 @@ Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/o
  - Ant
  - GIT client.
 
-## Getting started
+### Getting started for developers
+Download sources or clone them via git clone command to chosen directory: git clone https://github.com/osrmt/osrmt.git and create branch 
+
+#### Development
+As of now project is configured for Eclipse IDE. You can use any IDE you want, just make sure to configure project classpath. All dependencies are in osrmt\build-resources\common\runtime-lib and osrmt\build-resources\common\compile-lib directories.
+
+#### Building applications
+Project can be built via Ant script. Open command line prompt from in the root of sources folder and execute following commands:
+ - **ant app.client.assemble** - desktop application build. After build is finished assembled application will be available in 'dist' folder
+ - **ant web.app.assemble** - web application build. After build is finished assembled application will be available in 'dist/web' folder
+
+## Getting started for users
 Currently available latest version 1.6 can be downloaded by one of the following links:
  - [desktop standalone application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
  - [web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
