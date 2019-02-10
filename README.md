@@ -15,8 +15,8 @@ Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/o
 
 ## Getting started
 Currently available latest version 1.6 can be downloaded by one of the following links:
- - [desktop standalone application](https://github.com/osrmt/osrmt/raw/release/v1.6/build/desktop.app_v1.6.zip)
- - [web application](https://github.com/osrmt/osrmt/raw/release/v1.6/build/web.app_v1.6.zip)
+ - [desktop standalone application](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
+ - [web application](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 ### Pre-installation requirements
  - Windows, Linux or MacOS
