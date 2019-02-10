@@ -32,6 +32,9 @@
   <property name="ejb.resources" location="${ejb.root}/resources"/>
 
   <property name="db.root" location="build-resources/db"/>
+  <property name="db.init" location="build-resources/db-init/common"/>
+  <property name="db.init.app.client" location="build-resources/db-init/app-client"/>
+  <property name="db.init.web.app" location="build-resources/db-init/web-app"/>
 
   <property name="ear.root" location="build-resources/ear"/>
   <property name="ear.meta" location="${ear.root}/meta"/>
@@ -87,9 +90,11 @@
 			<fileset dir="${common.runtime.libs}"/>
 			<fileset dir="${common.compile.libs}"/>
 			<fileset dir="${db.root}"/>
+			<fileset dir="${db.init}"/>
+			<fileset dir="${db.init.app.client}"/>
 		</copy>
 		
-		<zip destfile="${dist}/desktop.app.zip">
+		<zip destfile="${dist}/osrmt.desktop.zip">
 			<zipfileset dir="${desktop.app.dist}"/>
 		</zip>
 
@@ -194,8 +199,12 @@
 			<zipfileset dir="${common.resources}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${ear.dist}" prefix="jboss-4.0.3/server/default/deploy"/>
 			<zipfileset dir="${app.client.dist}" prefix="jboss-4.0.3/server/default/lib"/>
+			<zipfileset dir="${db.root}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${db.root}" prefix="dbscripts"/>
+			<zipfileset dir="${db.init}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${db.init.web.app}" prefix="jboss-4.0.3/bin"/>
 		</zip>
+		<move file="${web.app.dist}/jboss-4.0.3.zip" tofile="${web.app.dist}/osrmt.wep.app.zip"/>
 	</target>
 	<!-- END WEB APPLICATION BUILD -->
 	<!-- TODO delete all intermediate folders -->

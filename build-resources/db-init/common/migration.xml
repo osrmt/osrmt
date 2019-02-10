@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<java version="1.5.0_04" class="java.beans.XMLDecoder">
+ 
+ <object class="com.osframework.datalibrary.common.ConnectionProperty">
+ 
+  <void property="accessSequence">
+ 
+   <int>0</int>
+ 
+  </void>
+ 
+  <void property="active">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="connectionType">
+ 
+   <string>Jdbc</string>
+ 
+  </void>
+ 
+  <void property="connectToURL">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="driverClass">
+ 
+   <string>sun.jdbc.odbc.JdbcOdbcDriver</string>
+ 
+  </void>
+ 
+  <void property="environment">
+ 
+   <string>source</string>
+ 
+  </void>
+ 
+  <void property="url">
+ 
+   <string>jdbc:odbc:DRIVER={Microsoft Access Driver (*.mdb)};DBQ=osrmtv13.mdb</string>
+ 
+  </void>
+ 
+  <void property="unicodeConnection">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="username">
+ 
+   <string>admin</string>
+ 
+  </void>
+ 
+  <void property="password">
+ 
+   <string></string>
+ 
+  </void>
+ 
+ </object>
+ 
+ <object class="com.osframework.datalibrary.common.ConnectionProperty">
+ 
+  <void property="accessSequence">
+ 
+   <int>0</int>
+ 
+  </void>
+ 
+  <void property="active">
+ 
+   <boolean>true</boolean>
+ 
+  </void>
+ 
+  <void property="connectionType">
+ 
+   <string>Jdbc</string>
+ 
+  </void>
+ 
+  <void property="connectToURL">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="driverClass">
+ 
+   <string>sun.jdbc.odbc.JdbcOdbcDriver</string>
+ 
+  </void>
+ 
+  <void property="environment">
+ 
+   <string>destination</string>
+ 
+  </void>
+ 
+  <void property="url">
+ 
+   <string>jdbc:odbc:DRIVER={Microsoft Access Driver (*.mdb)};DBQ=empty.mdb</string>
+ 
+  </void>
+ 
+  <void property="unicodeConnection">
+ 
+   <boolean>false</boolean>
+ 
+  </void>
+ 
+  <void property="username">
+ 
+   <string>admin</string>
+ 
+  </void>
+ 
+  <void property="password">
+ 
+   <string></string>
+ 
+  </void>
+ 
+ </object>
+</java> 
