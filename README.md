@@ -33,7 +33,9 @@ Currently available latest version 1.6 can be downloaded by one of the following
 #### Desktop
  1) go to installation folder
  2) enter 'schema' directory
- 3) execute <user\_database>\_create\_user.sql, <user\_database>\_create\_schema.sql and <user\_database>\_create\_view.sql scripts, where <user\_database> corresponds to DB server installed (refer to official database provide guides for more details regarding how to apply scripts to DB instance)
+ 3) Setup initial database structure (refer to official database provide guides for more details regarding how to create user/schema and apply scripts to DB instance):
+ 3.1) create osrmt user and database, grant all priveleges to that user,
+ 3.2) execute <user\_database>\_create\_user.sql, <user\_database>\_create\_schema.sql and <user\_database>\_create\_view.sql scripts against osrmt database, where <user\_database> corresponds to DB server installed 
  4) go back to the root of extracted folder
  5) find connection.<user_database>.xml, where <user_database> corresponds to DB server installed
  6) open and edit connection properties: username, password, URL
@@ -50,7 +52,9 @@ Currently available latest version 1.6 can be downloaded by one of the following
 #### Web
  1) go to installation folder
  2) enter 'dbscripts/schema' directory
- 3) execute <user\_database>\_create\_user.sql, <user\_database>\_create\_schema.sql and <user\_database>\_create\_view.sql scripts, where <user\_database> corresponds to DB server installed (refer to official database provide guides for more details regarding how to apply scripts to DB instance)
+ 3) Setup initial database structure (refer to official database provide guides for more details regarding how to create user/schema and apply scripts to DB instance):
+ 3.1) create osrmt user and database, grant all priveleges to that user,
+ 3.2) execute <user\_database>\_create\_user.sql, <user\_database>\_create\_schema.sql and <user\_database>\_create\_view.sql scripts against osrmt database, where <user\_database> corresponds to DB server installed 
  4) go back to the root of extracted folder, and enter to 'jboss-4.0.3\bin'
  5) find connection.<user_database>.xml, where <user_database> corresponds to DB server installed
  6) open and edit connection properties: username, password, URL
