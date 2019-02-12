@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE application-client PUBLIC 
+          '-//Sun Microsystems, Inc.//DTD J2EE Application Client 1.3//EN' 
+          'http://java.sun.com/dtd/application-client_1_3.dtd'>
+<application-client>
+    <display-name>osrmtAdmin</display-name>
+    <ejb-ref>
+        <ejb-ref-name>ejb/ReferenceMap</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <home>com.osframework.ejb.reference.common.ReferenceMapHome</home>
+        <remote>com.osframework.ejb.reference.common.ReferenceMap</remote>
+    </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>ejb/Security</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <home>com.osframework.ejb.reference.security.SecurityHome</home>
+        <remote>com.osframework.ejb.reference.security.Security</remote>
+    </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>ejb/RequirementManager</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <home>com.osrmt.ejb.reqmanager.RequirementManagerHome</home>
+        <remote>com.osrmt.ejb.reqmanager.RequirementManager</remote>
+    </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>ejb/System</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <home>com.osframework.ejb.system.SystemHome</home>
+        <remote>com.osframework.ejb.system.System</remote>
+    </ejb-ref>
+</application-client>

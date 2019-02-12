@@ -1,0 +1,28 @@
+<!DOCTYPE jboss PUBLIC
+          "-//JBoss//DTD JBOSS 4.0//EN"
+          "http://www.jboss.org/j2ee/dtd/jboss_4_0.dtd">
+<jboss>
+    <security-domain>java:/jaas/osrmt</security-domain>
+    <enterprise-beans>
+        <entity>
+            <ejb-name>ReferenceMapBean</ejb-name>
+            <jndi-name>ReferenceMapName</jndi-name>
+            <local-jndi-name>LocalReferenceMapName</local-jndi-name>
+         </entity>
+        <entity>
+            <ejb-name>SecurityBean</ejb-name>
+            <jndi-name>SecurityName</jndi-name>
+            <local-jndi-name>LocalSecurityName</local-jndi-name>
+         </entity>
+        <entity>
+            <ejb-name>RequirementManagerBean</ejb-name>
+            <jndi-name>RequirementManagerName</jndi-name>
+            <local-jndi-name>LocalRequirementManagerName</local-jndi-name>
+         </entity>
+        <entity>
+            <ejb-name>SystemBean</ejb-name>
+            <jndi-name>SystemName</jndi-name>
+            <local-jndi-name>LocalSystemName</local-jndi-name>
+         </entity>
+    </enterprise-beans>
+</jboss>
