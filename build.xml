@@ -89,6 +89,7 @@
 			<fileset dir="${app.client.dist}"/>
 			<fileset dir="${common.runtime.libs}"/>
 			<fileset dir="${common.compile.libs}"/>
+			<fileset dir="${common.resources}"/>
 			<fileset dir="${db.root}"/>
 			<fileset dir="${db.init}"/>
 			<fileset dir="${db.init.app.client}"/>
@@ -195,7 +196,7 @@
 			<fileset dir="${ear.dist}" />
 		</touch>
 		<zip destfile="${web.app.dist}/jboss-4.0.3.zip" update="true">
-			<zipfileset dir="${common.runtime.libs}" prefix="jboss-4.0.3/server/default/lib" includes="jasperreports-1.3.1.jar,mysql-connector-java-5.1.47-bin.jar,ojdbc8-11.jar,classes12.zip"/>
+			<zipfileset dir="${common.runtime.libs}" prefix="jboss-4.0.3/server/default/lib" includes="jasperreports-1.3.1.jar,mysql-connector-java-5.1.47-bin.jar,ojdbc8-11.jar,classes12.zip,hsqldb.jar,jackcess-2.1.11.jar,odbc.jar,ucanaccess-4.0.4.jar,commons-logging-1.1.3.jar,commons-lang-2.6.jar"/>
 			<zipfileset dir="${common.resources}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${ear.dist}" prefix="jboss-4.0.3/server/default/deploy"/>
 			<zipfileset dir="${app.client.dist}" prefix="jboss-4.0.3/server/default/lib"/>
