@@ -3,7 +3,7 @@
 
   <property name="dist" location="dist"/>
 
-  <property name="src.root" location="src"/>
+  <property name="src.root" location="src/main"/>
 
   <property name="app.client.src" location="${src.root}"/>
   <property name="app.client.build" location="${dist}/app.client/build"/>
@@ -79,6 +79,7 @@
 			<manifest>
 				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
 			</manifest>
+			<fileset dir="src/resources" includes="log4j.properties"/>
 		</jar>
 		<delete dir="${app.client.build}"/>
 	</target>

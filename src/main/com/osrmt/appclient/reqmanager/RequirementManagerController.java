@@ -3,6 +3,8 @@ package com.osrmt.appclient.reqmanager;
 import javax.swing.event.*;
 import javax.swing.tree.*;
 
+import org.apache.commons.logging.Log;
+
 import java.awt.*;
 import java.awt.dnd.*;
 import javax.swing.*;
@@ -68,6 +70,7 @@ public class RequirementManagerController extends RequirementManagerBaseControll
 	
 	public RequirementManagerController() {
 		ApplicationObject.setRequirementManagerController(this);
+		
 	}
 	
 	/**

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="artifact_summary"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="270"
+		 columnSpacing="15"
+		 leftMargin="20"
+		 rightMargin="20"
+		 topMargin="30"
+		 bottomMargin="30"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<style 
+		name="Arial_Normal"
+		isDefault="true"
+		fontName="Arial"
+		fontSize="8"
+		isBold="false"
+		isItalic="false"
+		isUnderline="false"
+		isStrikeThrough="false"
+		pdfFontName="Helvetica"
+		pdfEncoding="Cp1252"
+		isPdfEmbedded="false"
+	/>
+
+	<parameter name="products" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["Example"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="artifacts" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[select * from artifactsummary where product in ($P{products})  or $P{products} = '']]></queryString>
+
+	<field name="product" class="java.lang.String"/>
+	<field name="artifacttype" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="priority" class="java.lang.String"/>
+	<field name="version" class="java.lang.String"/>
+	<field name="artifact_id" class="java.lang.Integer"/>
+	<field name="PRODUCT_REF_ID" class="java.lang.Integer"/>
+	<field name="VERSION_REF_ID" class="java.lang.Integer"/>
+	<field name="ARTIFACT_REF_ID" class="java.lang.Integer"/>
+	<field name="ARTIFACT_NBR" class="java.lang.Integer"/>
+	<field name="ARTIFACT_SEQ" class="java.lang.Integer"/>
+	<field name="ARTIFACT_LEVEL_REF_ID" class="java.lang.Integer"/>
+	<field name="COMPONENT_TYPE_REF_ID" class="java.lang.Integer"/>
+	<field name="LAST_UPDATED_BASELINE_ID" class="java.lang.Integer"/>
+	<field name="artifact_name" class="java.lang.String"/>
+	<field name="DESCRIPTION" class="java.lang.String"/>
+	<field name="STATUS_REF_ID" class="java.lang.Integer"/>
+	<field name="PRIORITY_REF_ID" class="java.lang.Integer"/>
+	<field name="COMPLEXITY_REF_ID" class="java.lang.Integer"/>
+	<field name="AUTHOR_REF_ID" class="java.lang.Integer"/>
+	<field name="ASSIGNED_REF_ID" class="java.lang.Integer"/>
+	<field name="CATEGORY_REF_ID" class="java.lang.Integer"/>
+	<field name="ASSIGNED_USER_ID" class="java.lang.Integer"/>
+	<field name="ASSIGNED_USER_GROUP_ID" class="java.lang.Integer"/>
+	<field name="EFFORT" class="java.lang.Double"/>
+	<field name="RATIONALE" class="java.lang.String"/>
+	<field name="ORIGIN" class="java.lang.String"/>
+	<field name="GOAL" class="java.lang.String"/>
+	<field name="CONTEXT" class="java.lang.String"/>
+	<field name="PRECONDITION" class="java.lang.String"/>
+	<field name="POSTCONDITION" class="java.lang.String"/>
+	<field name="SUMMARY" class="java.lang.String"/>
+	<field name="EXTERNAL_REFERENCES" class="java.lang.String"/>
+	<field name="PLANNED_VERSION_REF_ID" class="java.lang.Integer"/>
+	<field name="LAST_MODIFIED_VERSION_REF_ID" class="java.lang.Integer"/>
+	<field name="REMOVED_IND" class="java.lang.Integer"/>
+	<field name="MODULE_REF_ID" class="java.lang.Integer"/>
+	<field name="ORIGIN_CATEGORY_REF_ID" class="java.lang.Integer"/>
+	<field name="CHANGE_REASON" class="java.lang.String"/>
+	<field name="CHANGE_MADE" class="java.lang.String"/>
+	<field name="REPORT_SEQUENCE" class="java.lang.Integer"/>
+	<field name="REPORT_OUTLINE" class="java.lang.String"/>
+	<field name="CREATE_DT" class="java.sql.Timestamp"/>
+	<field name="CREATE_USER_ID" class="java.lang.Integer"/>
+	<field name="UPDATE_DT" class="java.sql.Timestamp"/>
+	<field name="UPDATE_USER_ID" class="java.lang.Integer"/>
+	<field name="UPDATE_COUNT" class="java.lang.Integer"/>
+	<field name="ACTIVE_IND" class="java.lang.Integer"/>
+	<field name="SYSTEM_ASSIGNED_VERSION_NBR" class="java.lang.Integer"/>
+	<field name="RECORD_TYPE_REF_ID" class="java.lang.Integer"/>
+	<field name="CUSTOM_TEXT1" class="java.lang.String"/>
+	<field name="CUSTOM_TEXT2" class="java.lang.String"/>
+	<field name="CUSTOM_TEXT3" class="java.lang.String"/>
+	<field name="CUSTOM_TEXT4" class="java.lang.String"/>
+	<field name="CUSTOM1_REF_ID" class="java.lang.Integer"/>
+	<field name="CUSTOM2_REF_ID" class="java.lang.Integer"/>
+	<field name="CUSTOM3_REF_ID" class="java.lang.Integer"/>
+	<field name="CUSTOM4_REF_ID" class="java.lang.Integer"/>
+	<field name="CUSTOM_DATE1" class="java.sql.Timestamp"/>
+	<field name="CUSTOM_DATE2" class="java.sql.Timestamp"/>
+	<field name="CUSTOM_MEMO1" class="java.lang.String"/>
+	<field name="CUSTOM_MEMO2" class="java.lang.String"/>
+	<field name="CUSTOM_INT1" class="java.lang.Integer"/>
+	<field name="CUSTOM_INT2" class="java.lang.Integer"/>
+	<field name="CUSTOM_DOUBLE1" class="java.lang.Double"/>
+
+	<variable name="ArtifactTypeCount" class="java.lang.Integer" resetType="Report" calculation="Count">
+		<variableExpression><![CDATA[$F{artifact_name}]]></variableExpression>
+	</variable>
+	<variable name="VersionCount" class="java.lang.Integer" resetType="Group" resetGroup="VersionGroup" calculation="Count">
+		<variableExpression><![CDATA[$F{version}]]></variableExpression>
+	</variable>
+	<variable name="StatusCount" class="java.lang.Integer" resetType="Group" resetGroup="StatusGroup" calculation="Count">
+		<variableExpression><![CDATA[$F{status}]]></variableExpression>
+	</variable>
+	<filterExpression><![CDATA[new Boolean($P{artifacts}==null || 
+(
+$P{artifacts}.indexOf(String.valueOf($F{artifact_id}) + ",") == 0 ||
+$P{artifacts}.indexOf("," + String.valueOf($F{artifact_id}) + ",") > 0 ||
+$P{artifacts}.endsWith("," + String.valueOf($F{artifact_id}))
+))]]></filterExpression>
+
+		<group  name="ArtifactTypeGroup" minHeightToStartNewPage="50" >
+			<groupExpression><![CDATA[$F{artifacttype}]]></groupExpression>
+			<groupHeader>
+			<band height="25"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="150"
+						height="20"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font size="12" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{artifacttype}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="15"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="0"
+						width="270"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="0"
+						y="1"
+						width="45"
+						height="11"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font/>
+					</textElement>
+				<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="45"
+						y="1"
+						width="25"
+						height="11"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{ArtifactTypeCount}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="VersionGroup" minHeightToStartNewPage="50" >
+			<groupExpression><![CDATA[$F{version}]]></groupExpression>
+			<groupHeader>
+			<band height="25"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="150"
+						height="20"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font size="12" isBold="false"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Version: "  + $F{version}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="15"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="0"
+						width="270"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="80"
+						y="1"
+						width="45"
+						height="11"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font/>
+					</textElement>
+				<text><![CDATA[Count :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="125"
+						y="1"
+						width="25"
+						height="11"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{VersionCount}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="StatusGroup" minHeightToStartNewPage="50" >
+			<groupExpression><![CDATA[$F{status}]]></groupExpression>
+			<groupHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="15"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="45"
+						y="0"
+						width="150"
+						height="11"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{status} + ": " + String.valueOf($V{StatusCount})]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="40"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="7"
+						width="529"
+						height="30"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font size="20" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{product}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="38"
+						width="534"
+						height="0"
+						forecolor="#000000"
+						key="line"
+						positionType="FixRelativeToBottom"/>
+					<graphicElement stretchType="NoStretch" pen="2Point"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="3"
+						width="534"
+						height="0"
+						forecolor="#000000"
+						key="line"/>
+					<graphicElement stretchType="NoStretch" pen="2Point"/>
+				</line>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>
