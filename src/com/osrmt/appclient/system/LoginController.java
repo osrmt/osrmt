@@ -27,6 +27,7 @@ import com.osframework.modellibrary.reference.group.FormTitleFramework;
 import com.osframework.modellibrary.reference.group.SystemInfoFramework;
 import com.osframework.modellibrary.reference.group.SystemMessageFramework;
 import com.osframework.modellibrary.reference.security.*;
+import com.osrmt.GlobalConstants;
 import com.osrmt.appclient.setting.*;
 import com.osrmt.modellibrary.reference.group.*;
 /**
@@ -75,7 +76,7 @@ public class LoginController extends LoginBaseController {
 			// show the form
 			//TODO Size and location should be in properties
 			ui.setTitle(ReferenceServices.getMsg(FormTitleFramework.LOGONTOOSRMT)
-					+ " " + ReferenceServices.getMsg(SystemMessageFramework.VERSION) + " " + ReferenceServices.getDisplay(SystemInfoFramework.VERSION));
+					+ " " + ReferenceServices.getMsg(SystemMessageFramework.VERSION) + " " + GlobalConstants.APP_VERSION);
 			ui.setIconImage(GUI.getImage("osrmt.gif",this));
 			setCenterLocation();
 			ui.setVisible(true);
