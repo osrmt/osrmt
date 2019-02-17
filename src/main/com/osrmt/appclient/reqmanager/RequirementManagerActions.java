@@ -44,6 +44,7 @@ import com.osframework.modellibrary.reportwriter.ReportModel;
 import com.osframework.modellibrary.system.RecordFileModel;
 import com.osframework.modellibrary.system.RecordParameterControlList;
 import com.osframework.modellibrary.reference.group.*;
+import com.osrmt.GlobalConstants;
 import com.osrmt.appclient.artifact.form.*;
 import com.osrmt.appclient.artifact.graph.TraceabilityGraph;
 import com.osrmt.appclient.artifact.graph.UIGraph;
@@ -1030,10 +1031,13 @@ public class RequirementManagerActions {
 				null,
 				 new UIActionListener(controller.ui) {
 					public void actionExecuted(ActionEvent ae) throws Exception {
-						String msg = ReferenceServices.getMsg(SystemMessageFramework.VERSION) + ": " + ReferenceServices.getDisplay(SystemInfoFramework.VERSION)
-						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.DATABASE) + " " + ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": " + ReferenceServices.getDisplay(SystemInfoFramework.VERSIONDATE)
-						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.CLIENT) + " " + ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": 26-Mar-2007"
-						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.SERVER) + " " + ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": " + ReferenceServices.getLastUpdated()
+						String msg = ReferenceServices.getMsg(SystemMessageFramework.VERSION) + ": " + GlobalConstants.APP_VERSION 
+						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.DATABASE) + " " 
+								+ ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": " + GlobalConstants.LAST_UPDATED_DATE
+						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.CLIENT) + " " 
+								+ ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": " + GlobalConstants.LAST_UPDATED_DATE
+						+ "\n" + ReferenceServices.getMsg(SystemMessageFramework.SERVER) + " " 
+								+ ReferenceServices.getMsg(FormButtonTextFramework.LASTUPDATED) + ": " + GlobalConstants.LAST_UPDATED_DATE
 						+ "\n\n";
 						JOptionPane.showMessageDialog(frame, msg, ReferenceServices.getMsg(FormTitleFramework.ABOUTOSRMT),JOptionPane.INFORMATION_MESSAGE);
 						SecurityServices.printStats();
