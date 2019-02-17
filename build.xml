@@ -3,7 +3,9 @@
 
   <property name="dist" location="dist"/>
 
+  <property name="dir.root" location="."/>
   <property name="src.root" location="src/main"/>
+  <property name="reports.root" location="reports"/>
 
   <property name="app.client.src" location="${src.root}"/>
   <property name="app.client.build" location="${dist}/app.client/build"/>
@@ -91,6 +93,7 @@
 			<fileset dir="${common.runtime.libs}"/>
 			<fileset dir="${common.compile.libs}"/>
 			<fileset dir="${common.resources}"/>
+			<fileset dir="${dir.root}" includes="connection.xml,connection.*.xml"/>
 			<fileset dir="${db.root}"/>
 			<fileset dir="${db.init}"/>
 			<fileset dir="${db.init.app.client}"/>
@@ -98,6 +101,7 @@
 		
 		<zip destfile="${dist}/osrmt.desktop.zip">
 			<zipfileset dir="${desktop.app.dist}"/>
+			<zipfileset dir="${reports.root}" prefix="reports"/>
 		</zip>
 
 		<delete dir="${app.client.build}"/>
@@ -199,12 +203,14 @@
 		<zip destfile="${web.app.dist}/jboss-4.0.3.zip" update="true">
 			<zipfileset dir="${common.runtime.libs}" prefix="jboss-4.0.3/server/default/lib" includes="jasperreports-1.3.1.jar,mysql-connector-java-5.1.47-bin.jar,ojdbc8-11.jar,classes12.zip,hsqldb.jar,jackcess-2.1.11.jar,odbc.jar,ucanaccess-4.0.4.jar,commons-logging-1.1.3.jar,commons-lang-2.6.jar,mssql-jdbc-6.4.0.jre7.jar"/>
 			<zipfileset dir="${common.resources}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${dir.root}" prefix="jboss-4.0.3/bin" includes="connection.xml,connection.*.xml"/>
 			<zipfileset dir="${ear.dist}" prefix="jboss-4.0.3/server/default/deploy"/>
 			<zipfileset dir="${app.client.dist}" prefix="jboss-4.0.3/server/default/lib"/>
 			<zipfileset dir="${db.root}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${db.root}" prefix="dbscripts"/>
 			<zipfileset dir="${db.init}" prefix="jboss-4.0.3/bin"/>
 			<zipfileset dir="${db.init.web.app}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${reports.root}" prefix="jboss-4.0.3/bin/reports"/>
 		</zip>
 		<move file="${web.app.dist}/jboss-4.0.3.zip" tofile="${web.app.dist}/osrmt.wep.app.zip"/>
 	</target>
