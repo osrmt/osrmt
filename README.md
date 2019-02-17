@@ -3,7 +3,7 @@ Requirements management tool designed to achieve full SDLC traceability for feat
 Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/osrmt/).
 
 ## Goals (Why is this project useful?)
-- application can be deployed on the server and can be used as multiuser connecting to it from desktop or web application.
+- application can be be used as multiuser web application.
 - User can "load and go" with a simple installation and one or more users can read/write each project locally or over their network.
 
 ## Supported OS
