@@ -1,3 +1,6 @@
+- [Desktop Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
+- [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+
 # Open Source Requirements Management Tool
 Requirements management tool designed to achieve full SDLC traceability for features, requirements, design, implementation and testing. UI for requirements derivation, version control, attributes etc.
 Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
