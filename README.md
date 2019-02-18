@@ -1,10 +1,10 @@
 # Open Source Requirements Management Tool
 Requirements management tool designed to achieve full SDLC traceability for features, requirements, design, implementation and testing. UI for requirements derivation, version control, attributes etc.
-Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/osrmt/).
+Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
 
 ## Goals (Why is this project useful?)
+- user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network;
 - application can be be used as single user desktop app or multiuser web application with centralized server and desktop or web client.
-- user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network.
 
 ## Supported OS
 OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
@@ -26,6 +26,17 @@ Follow 'Create and Install new database' and 'Import database contents' sections
 
 ## Users support
 If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not published yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be supported in the future.
+
+For defects create new request to fix with the following information:
+ - detailed steps to reproduce; E.g. 1. Start application -> 2. Login -> 3. Open Product -> 4. Menu - Tools - Report -> 5. All details report -> 6. Select product -> 7. Generate
+ - expected result and actual results. They should be put right after steps to reproduce;
+ - screenshots;
+ - system logs which can be found in OSRMT installation folder.
+
+
+For feature requests provide with the following information:
+ - detailed description of the feature;
+ - mockups if needed or examples screenshots.
 
 ## If you join our community you will be:
 - welcomed and helped until you are get what is expected;
@@ -119,3 +130,4 @@ See also the list of [contributors](https://github.com/osrmt/osrmt/contributors)
 
 This project is licensed under the GNU Gpl License - see the [LICENSE](LICENSE) file for details
 
+If you have any other questions refer to [FAQ](about:blank)
