@@ -20,7 +20,7 @@
    <string>access</string>
   </void>
   <void property="url">
-   <string>jdbc:ucanaccess://osrmt.mdb</string>
+   <string>jdbc:ucanaccess://starter.mdb</string>
   </void>
   <void property="unicodeConnection">
    <boolean>false</boolean>
