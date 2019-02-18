@@ -12,7 +12,7 @@ Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/
 ## Supported OS
 OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
 
-## Data storage/Database
+## Supported Databases
 Initially OSRMT doesn't need any additional set up after installation - just install and run the application.
 
 But if you need external storage for the application data you can use one of the following supported DBMS systems:
@@ -47,8 +47,8 @@ For feature requests provide with the following information:
 
 ## Getting started for users
 Currently available latest version 1.6 can be downloaded by one of the following links:
- - [desktop standalone application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
- - [web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+ - [Desktop application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
+ - [Web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 ### Pre-installation requirements
  - Windows, Linux or MacOS
