@@ -3,14 +3,14 @@ Requirements management tool designed to achieve full SDLC traceability for feat
 Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/osrmt/).
 
 ## Goals (Why is this project useful?)
-- application can be be used as single user desktop app or multiuser web application.
+- application can be be used as single user desktop app or multiuser web application with centralized server and desktop or web client.
 - user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network.
 
 ## Supported OS
-Application is crossplatform and was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
+OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
 
 ## Data storage/Database
-Initially application uses MS Access database which doesn't need any additional set up after installation - just install and run the application.
+Initially OSRMT doesn't need any additional set up after installation - just install and run the application.
 
 But if you need external storage for the application data you can use one of the following supported DBMS systems:
 - Oracle;
@@ -20,7 +20,6 @@ But if you need external storage for the application data you can use one of the
 Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](about:blank) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
 
 ## Documentation
-You can find more information by the following links:
 - [Installation manual](about:blank)
 - [Development manual](about:blank)
 - [User manual](about:blank)
