@@ -1,32 +1,47 @@
+- [Desktop Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
+- [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+
 # Open Source Requirements Management Tool
 Requirements management tool designed to achieve full SDLC traceability for features, requirements, design, implementation and testing. UI for requirements derivation, version control, attributes etc.
-Designed to be a continuation for OSRMT v1.5 (https://sourceforge.net/projects/osrmt/).
+Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
 
 ## Goals (Why is this project useful?)
-- application can be be used as multiuser web application.
-- User can "load and go" with a simple installation and one or more users can read/write each project locally or over their network.
+- user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network;
+- application can be be used as single user desktop app or multiuser web application with centralized server and desktop or web client.
 
 ## Supported OS
-Application is crossplatform and was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
+OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
 
-## Data storage/Database
-Initially application uses MS Access database which doesn't need any additional set up after installation - just install and run the application.
+## Supported Databases
+Initially OSRMT doesn't need any additional set up after installation - just install and run the application.
 
 But if you need external storage for the application data you can use one of the following supported DBMS systems:
 - Oracle;
 - MySQL;
 - MS Sql;
 - PostgreSQL.
-Make sure to update connection.xml from corresponding connection.<DBMS>.xml (follow configuration steps)
+Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
 
 ## Documentation
-You can find more information by the following links:
-- [Installation manual](about:blank)
-- [Development manual](about:blank)
-- [User manual](about:blank)
+- [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing)
+- [Development manual](https://drive.google.com/open?id=1qoTxYpmqfnDeNPA96jx_uU52eqq5QtEH)
+- [User manual](https://drive.google.com/open?id=1cmMFeqjZCXUtoO3NueCaFT8V-rvnqJxo)
 
 ## Users support
-If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not pulished yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be actively supported in the future.
+If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not published yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be supported in the future.
+
+For defects create new request to fix with the following information:
+ - detailed steps to reproduce; E.g. 1. Start application -> 2. Login -> 3. Open Product -> 4. Menu - Tools - Report -> 5. All details report -> 6. Select product -> 7. Generate
+ - expected result and actual results. They should be put right after steps to reproduce;
+ - screenshots;
+ - system logs which can be found in OSRMT installation folder.
+
+
+For feature requests provide with the following information:
+ - detailed description of the feature;
+ - mockups if needed or examples screenshots.
+
+If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3Bh0stVKCzl6Lgdd8uY0NbNs7CRWX)
 
 ## If you join our community you will be:
 - welcomed and helped until you are get what is expected;
@@ -34,14 +49,13 @@ If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new
 
 ## Getting started for users
 Currently available latest version 1.6 can be downloaded by one of the following links:
- - [desktop standalone application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
- - [web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+ - [Desktop application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
+ - [Web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 ### Pre-installation requirements
  - Windows, Linux or MacOS
- - Achiver (winrar, 7-Zip, etc)
+ - Archiver (winrar, 7-Zip, etc)
  - Installed JRE 1.8+
- - Installed DB server, one of the following: MySQL, Oracle, Postgres, MS Sql, MS Access
 
 ### Installation process
 #### Desktop/Web app
@@ -120,4 +134,3 @@ See also the list of [contributors](https://github.com/osrmt/osrmt/contributors)
 ## License
 
 This project is licensed under the GNU Gpl License - see the [LICENSE](LICENSE) file for details
-
