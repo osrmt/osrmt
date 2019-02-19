@@ -1,1 +1,1 @@
-java -classpath * com.osrmt.appclient.reqmanager.RequirementManagerController
+java -cp "*" com.osrmt.appclient.reqmanager.RequirementManagerController
