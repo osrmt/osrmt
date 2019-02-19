@@ -20,12 +20,12 @@ But if you need external storage for the application data you can use one of the
 - MySQL;
 - MS Sql;
 - PostgreSQL.
-Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](about:blank) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
+Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
 
 ## Documentation
-- [Installation manual](about:blank)
-- [Development manual](about:blank)
-- [User manual](about:blank)
+- [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing)
+- [Development manual](https://drive.google.com/open?id=1qoTxYpmqfnDeNPA96jx_uU52eqq5QtEH)
+- [User manual](https://drive.google.com/open?id=1cmMFeqjZCXUtoO3NueCaFT8V-rvnqJxo)
 
 ## Users support
 If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not published yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be supported in the future.
@@ -40,6 +40,8 @@ For defects create new request to fix with the following information:
 For feature requests provide with the following information:
  - detailed description of the feature;
  - mockups if needed or examples screenshots.
+
+If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3Bh0stVKCzl6Lgdd8uY0NbNs7CRWX)
 
 ## If you join our community you will be:
 - welcomed and helped until you are get what is expected;
@@ -132,5 +134,3 @@ See also the list of [contributors](https://github.com/osrmt/osrmt/contributors)
 ## License
 
 This project is licensed under the GNU Gpl License - see the [LICENSE](LICENSE) file for details
-
-If you have any other questions refer to [FAQ](about:blank)
