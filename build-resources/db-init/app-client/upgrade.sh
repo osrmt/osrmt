@@ -1,1 +1,1 @@
-java -cp * com.osrmt.appclient.setup.Configuration
+java -cp "*" com.osrmt.appclient.setup.Configuration
