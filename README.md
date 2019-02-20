@@ -2,7 +2,7 @@
 - [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
-Requirements management tool designed to achieve full SDLC traceability for features, requirements, design, implementation and testing. UI for requirements derivation, version control, attributes etc.
+Open Source Requirements Management Tool (OSRMT) is a highly configurable, free open source solution for defining and managing software requirements. It gives you an easy-to-install and easy-to-use solution to document all aspects of software development life cycle (SDLC).
 Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
 
 ## Goals (Why is this project useful?)
@@ -13,7 +13,7 @@ Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/
 OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
 
 ## Supported Databases
-Initially OSRMT doesn't need any additional set up after installation - just install and run the application.
+Initially OSRMT doesn't need any additional DB set up after installation - just install and run the application.
 
 But if you need external storage for the application data you can use one of the following supported DBMS systems:
 - Oracle;
@@ -81,7 +81,7 @@ Follow next steps only in case you want to use external DBMS (Oracle, MySQL, MS 
  8.4) when you are prompted to initialize empty database press Enter key
  8.5) Press Enter when you are prompted to choose next option
  9) you are ready to work with desktop OSRMT application
- 10) run run.bat\/run.sh depending on target OS
+ 10) run run.bat\/run.sh depending on target OS (Note: for Linux/MacOS users run in termial 'chmod +x run.sh' in order to give permission to execute it)
 
 #### Web
 Follow next steps only in case you want to use external DBMS (Oracle, MySQL, MS SQL, PostgreSQL), in the other case go to step 10)
@@ -100,7 +100,7 @@ Follow next steps only in case you want to use external DBMS (Oracle, MySQL, MS 
  8.3) check target database and press Enter key
  8.4) when you are prompted to initialize empty database press Enter key
  8.5) Press Enter when you are prompted to choose next option
- 9) run run.bat\/run.sh depending on target OS
+ 9) run run.bat\/run.sh depending on target OS (Note: for Linux/MacOS users run in termial 'chmod +x run.sh' in order to give permission to execute it)
  10) application will be deployed in JBoss server on 8080 port, it will be accessible locally by following address http://localhost:8080/osrmt
 
 ### Development requirements
