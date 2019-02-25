@@ -2,8 +2,15 @@
 - [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
-Open Source Requirements Management Tool (OSRMT) is a highly configurable, free open source solution for defining and managing software requirements. It gives you an easy-to-install and easy-to-use solution to document all aspects of software development life cycle (SDLC).
+Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution for defining and managing software requirements. It gives you an easy-to-install and easy-to-use solution to document all aspects of software development life cycle (SDLC).
 Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
+
+A problem clearly stated is a problem half solved.
+- Dorothea Brande
+
+Every hour spent understanding the requirements better saves a week of implementation.
+- unknown
+
 
 ## Goals (Why is this project useful?)
 - user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network;
