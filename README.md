@@ -2,14 +2,14 @@
 - [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
-Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution for defining and managing software requirements. It gives you an easy-to-install and easy-to-use solution to document all aspects of software development life cycle (SDLC).
+Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution that gives you an easy-to-install and easy-to-use solution for defining and managing software requirements. 
 Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
 
-A problem clearly stated is a problem half solved.
-- Dorothea Brande
+Requirements analysis is critical to the success of software products. It includes determining the needs to satisfy, resolving conflicting requirements as well as analyzing, documenting, validating and managing requirements. - adapted from Wikipedia Requirements Analysis
 
-Every hour spent understanding the requirements better saves a week of implementation.
-- unknown
+A problem clearly stated is a problem half solved. - Dorothea Brande
+
+Every hour spent understanding the requirements better saves a week of implementation. - unknown
 
 
 ## Goals (Why is this project useful?)
@@ -17,7 +17,7 @@ Every hour spent understanding the requirements better saves a week of implement
 - application can be be used as single user desktop app or multiuser web application with centralized server and desktop or web client.
 
 ## Supported OS
-OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
+OSRMT is cross platform application, It was tested on: Windows, Linux (Centos distribution) and MacOS.
 
 ## Supported Databases
 Initially OSRMT doesn't need any additional DB set up after installation - just install and run the application.
@@ -51,8 +51,8 @@ For feature requests provide with the following information:
 If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3Bh0stVKCzl6Lgdd8uY0NbNs7CRWX)
 
 ## If you join our community you will be:
-- welcomed and helped until you are get what is expected;
-- thanked for the contribution no matter how small or in what area.
+- welcomed and supported until you are understand what is expected;
+- thanked for your contribution no matter how small or in what area.
 
 ## Getting started for users
 Currently available latest version 1.6 can be downloaded by one of the following links:
