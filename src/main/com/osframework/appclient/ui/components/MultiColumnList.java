@@ -131,7 +131,7 @@ public class MultiColumnList extends JScrollPane {
 		jtable.setPreferredScrollableViewportSize(jtable.getPreferredSize());
 //		jtable.setPreferredSize(new Dimension(10,10));
 //		jtable.setSize(new Dimension(10,10));
-		jtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		jtable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		addSelectionListeners(jtable);
 		addPropertyListeners(jtable);
 		addMouseListeners(jtable);

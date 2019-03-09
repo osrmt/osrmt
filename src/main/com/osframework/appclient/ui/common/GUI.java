@@ -283,7 +283,6 @@ public class GUI {
         	if (maxWidth > minWidth) {
         		maxWidth += 10;
         	}
-        	column.setPreferredWidth(maxWidth);
         }
 		} catch (Exception ex) {
 			Debug.LogException("GUI", ex);
