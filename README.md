@@ -1,5 +1,5 @@
-- [Desktop Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
-- [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+- [Desktop Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.desktop_v1.6.zip)
+- [Web Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
 Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution that gives you an easy-to-install and easy-to-use solution for defining and managing software requirements. 
