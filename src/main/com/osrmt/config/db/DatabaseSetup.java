@@ -6,9 +6,7 @@ import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
-import liquibase.resource.FileSystemResourceAccessor;
 
 import java.sql.SQLException;
 
@@ -23,10 +21,12 @@ public class DatabaseSetup {
 
     public void applyDbUpdates() throws SQLException {
         java.sql.Connection c = Db.getConnection().getConnection();
-        Liquibase liquibase;
+        Liquibase liquibase = null;
         try {
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(c));
-            liquibase = new Liquibase(DatabaseSetup.class.getClassLoader().getResource("db/liquibase.xml").getFile(), new ClassLoaderResourceAccessor(), database);
+
+            liquibase = new Liquibase("db/liquibase.xml",
+                    new ClassLoaderResourceAccessor(), database);
             liquibase.update((String) null);
         } catch (Exception ex) {
             Debug.LogException(null, ex, "Liquibase DB update exception.");
