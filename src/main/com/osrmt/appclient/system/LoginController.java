@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.Enumeration;
 
 import javax.swing.*;
@@ -29,7 +30,16 @@ import com.osframework.modellibrary.reference.group.SystemMessageFramework;
 import com.osframework.modellibrary.reference.security.*;
 import com.osrmt.GlobalConstants;
 import com.osrmt.appclient.setting.*;
+import com.osrmt.config.db.DatabaseSetup;
 import com.osrmt.modellibrary.reference.group.*;
+import liquibase.Liquibase;
+import liquibase.database.Database;
+import liquibase.database.DatabaseFactory;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.DatabaseException;
+import liquibase.exception.LiquibaseException;
+import liquibase.resource.FileSystemResourceAccessor;
+
 /**
  * Login Controller authenticates the user setting the parent
  * forms object to the users UserModel. 
@@ -39,7 +49,7 @@ public class LoginController extends LoginBaseController {
 
 	private IParent parent;
 	private UIComboBox connectionList;
-	
+
 	/**
 	 * Parent form starts the FindPatient module to initiate a new search
 	 * 
@@ -60,6 +70,8 @@ public class LoginController extends LoginBaseController {
 			if (Db.getAccess().getConnProperty() == null) {
 				throw new ConnectionXmlNotFoundException();
 			}
+			DatabaseSetup.getInstance().applyDbUpdates();
+
 			controls = SecurityServices.getAppControls(
 					ApplicationFramework.get(ApplicationGroup.LOGIN), true);
 			if (controls.size() == 0) {

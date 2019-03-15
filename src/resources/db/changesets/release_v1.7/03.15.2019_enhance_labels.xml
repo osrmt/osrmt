@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        logicalFilePath="independent"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="atimofieiev" id="03.15.2019_enhance_labels" >
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Artifact Priority"></column>
+            <where>CONTROL_DESCRIPTION = 'Priority to complete'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>
