@@ -14,19 +14,19 @@
    <boolean>false</boolean>
   </void>
   <void property="driverClass">
-   <string>sun.jdbc.odbc.JdbcOdbcDriver</string>
+   <string>org.hsqldb.jdbc.JDBCDriver</string>
   </void>
   <void property="environment">
    <string>access</string>
   </void>
   <void property="url">
-   <string>jdbc:ucanaccess://starter.mdb</string>
+   <string>jdbc:hsqldb:file:starter;hsqldb.cache_rows=1000;hsqldb.nio_data_file=false;sql.sys_index_names=true</string>
   </void>
   <void property="unicodeConnection">
    <boolean>false</boolean>
   </void>
   <void property="username">
-   <string>admin</string>
+   <string>ADMIN</string>
   </void>
   <void property="password">
    <string></string>
