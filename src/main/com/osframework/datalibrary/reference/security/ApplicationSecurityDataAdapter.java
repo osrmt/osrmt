@@ -29,14 +29,14 @@ public class ApplicationSecurityDataAdapter extends ApplicationSecurityDbAdapter
 		//if they map to ModelLists which are hash tables - 
 		//otherwise may overwrite an entry.  In fact get rid of hash tables
 		String sql = "select a.*"
-				+ " from application_security a, reference r2, reference r3, application_view av"
-				+ " where a.table_key_id = ?" 
+				+ " from application_security a, application_view av, reference r2, reference r3"
+				+ " where a.application_view_id = av.application_view_id "
+				+ " and av.view_ref_id = r2.ref_id "
+				+ " and av.app_type_ref_id = r3.ref_id "
+				+ " and a.table_key_id = ?" 
 				+ " and a.table_ref_id = ?"
-				+ " and a.application_view_id = av.application_view_id"
 				+ " and av.application_ref_id = ?"
 				+ " and a.active_ind = 1"
-				+ " and av.view_ref_id = r2.ref_id"
-				+ " and av.app_type_ref_id = r3.ref_id"
 				+ " order by r3.display_sequence, r2.display_sequence";
 		Vector params = new Vector(3);
 		params.add(new Integer(tableKeyId));
