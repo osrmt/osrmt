@@ -12,5 +12,59 @@
             <where>CONTROL_DESCRIPTION = 'Priority to complete'</where>
         </update>
     </changeSet>
+    <changeSet author="atimofieiev" id="03.23.2019_enhance_labels" >
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Artifact Category"></column>
+            <where>CONTROL_DESCRIPTION = 'Artifact custom type'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Feature Implementation Complexity"></column>
+            <where>CONTROL_DESCRIPTION = 'Complexity to implement this feature'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Requirement Rationale"></column>
+            <where>CONTROL_DESCRIPTION = 'Reason for requirement'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Design Title"></column>
+            <where>CONTROL_DESCRIPTION = 'Design module name'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Confirm Password"></column>
+            <where>CONTROL_DESCRIPTION = 'Enter your new password again'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="New Password"></column>
+            <where>CONTROL_DESCRIPTION = 'New user password'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Remove primary key and artifact Nbr in order to be able to import it as new artifact"></column>
+            <where>CONTROL_DESCRIPTION = 'Remove the artifact_id and artifact_nbr value from the XML so on import artifacts will not match and will all be added as new'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Browse file"></column>
+            <where>CONTROL_DESCRIPTION = 'Browse for file name to overwrite'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="System Username"></column>
+            <where>CONTROL_DESCRIPTION = 'Unique login username'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Last Name"></column>
+            <where>CONTROL_DESCRIPTION = 'Users given name'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Change Request Title"></column>
+            <where>CONTROL_DESCRIPTION = 'Title of change'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="Change Request Identifier"></column>
+            <where>CONTROL_DESCRIPTION = 'Change control request number'</where>
+        </update>
+        <update tableName="APPLICATION_CONTROL">
+            <column name="CONTROL_DESCRIPTION" value="User Assignment"></column>
+            <where>CONTROL_DESCRIPTION is null and CONTROL_TEXT = 'Assigned'</where>
+        </update>
+    </changeSet>
 
 </databaseChangeLog>
