@@ -20,7 +20,7 @@
    <string>access</string>
   </void>
   <void property="url">
-   <string>jdbc:hsqldb:file:starter;default_schema=true;hsqldb.tx=mvlocks;hsqldb.lock_file=false;hsqldb.reconfig_logging=false;hsqldb.sqllog=3</string>
+   <string>jdbc:hsqldb:file:starter;hsqldb.sqllog=3</string>
   </void>
   <void property="unicodeConnection">
    <boolean>false</boolean>
