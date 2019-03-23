@@ -97,7 +97,29 @@ public class ArtifactDetailReport extends ReportBase {
 		if (properties.containsKey(keySql)) {
 			return properties.get(keySql).toString();
 		} else {
-			return "SELECT r1.display AS Product, r2.display AS ArtifactType, a.artifact_nbr as ArtifactNbr, a.artifact_name as ArtifactName, r5.display as Version, r3.display AS Status, r4.display AS Priority, a.description, a.effort as Effort, a.create_dt as CreateDate FROM artifact a, reference r1, reference r2, reference r3, reference r4, reference r5 WHERE a.active_ind=1 And a.product_ref_id=r1.ref_id And a.artifact_ref_id=r2.ref_id And a.status_ref_id=r3.ref_id And a.priority_ref_id=r4.ref_id And a.version_ref_id = r5.ref_id ORDER BY r1.display, r2.display_sequence, r5.display_sequence, r3.display_sequence";
+			return "SELECT "
+					+ " r1.display AS Product, "
+					+ " r2.display AS ArtifactType, "
+					+ " a.artifact_nbr as ArtifactNbr, "
+					+ " a.artifact_name as ArtifactName, "
+					+ " r5.display as Version, "
+					+ " r3.display AS Status, "
+					+ " r4.display AS Priority, "
+					+ " a.description, a.effort as Effort, "
+					+ " a.create_dt as CreateDate "
+					+ " FROM artifact a, "
+					+ "		reference r1, "
+					+ "		reference r2, "
+					+ "		reference r3, "
+					+ "		reference r4, "
+					+ "		reference r5 "
+					+ " WHERE a.product_ref_id=r1.ref_id "
+					+ " And a.artifact_ref_id=r2.ref_id "
+					+ " And a.status_ref_id=r3.ref_id "
+					+ " And a.priority_ref_id=r4.ref_id "
+					+ " And a.version_ref_id = r5.ref_id "
+					+ " and a.active_ind=1 "
+					+ " ORDER BY r1.display, r2.display_sequence, r5.display_sequence, r3.display_sequence";
 		}
 	}
 	 
