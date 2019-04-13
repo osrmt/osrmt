@@ -266,12 +266,13 @@ public class RequirementManagerActions {
 
 	
 	public ApplicationAction getSystemExport() {
+		RequirementManagerUI ui = controller.ui;
 		return new ApplicationAction(ActionGroup.REQMGRSYSTEMEXPORT,
 				null,
 				new UIActionListener(controller.ui) {
 					public void actionExecuted(ActionEvent me) {
 						try {
-							SystemServices.exportSystem();
+							SystemServices.exportSystem(ui);
 						} catch (Exception ex) {
 							Debug.LogException(this, ex);
 						}
@@ -1165,13 +1166,16 @@ public class RequirementManagerActions {
 		
 		MenuManager menuManager = RequirementManagerTools.getMenuManager();
 		UIPopupMenu pop = new UIPopupMenu("");
-        addEditArtifact(pop, actions, menuManager, node);
-        addRefresh(model.getProductRefId(), pop, actions, menuManager, node);
+        if(node.isLeaf() && node.getLevel()!=1)
+			addEditArtifact(pop, actions, menuManager, node);
+		addRefresh(model.getProductRefId(), pop, actions, menuManager, node);
         addTraceArtifacts(pop, actions, menuManager, node);
         addExport(pop, actions, menuManager, node);
         addFileNew(pop, actions, menuManager);
-        pop.addSeparator();
-        addDelete(pop, actions, menuManager, node);
+        if(node.isLeaf() && node.getLevel()!=1) {
+            pop.addSeparator();
+        	addDelete(pop, actions, menuManager, node);
+        }
         pop.show(controller.getReqTree().getTree(), x, y); 
 		resetSystemState();
 	}
