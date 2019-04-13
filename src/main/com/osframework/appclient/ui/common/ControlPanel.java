@@ -445,8 +445,10 @@ public class ControlPanel {
 				((IGetCombo) control).setEnabled(enable);
 				((IGetCombo) control).setLocked(locked);
 			} else if (control instanceof ICustomBind) {
-				((ICustomBind) control).setEnabled(enable);
-				((ICustomBind) control).setLocked(locked);
+				if(!this.model.isNew()) {
+					((ICustomBind) control).setEnabled(enable);
+					((ICustomBind) control).setLocked(locked);
+				}
 			} else if (control instanceof IGetBoolean) {
 				((IGetBoolean) control).setEnabled(enable);
 				((IGetBoolean) control).setLocked(locked);
