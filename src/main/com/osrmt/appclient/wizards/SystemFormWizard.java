@@ -146,7 +146,7 @@ public class SystemFormWizard {
 		this.screen2SystemForm.setTitle(rm.getDisplay());
 		screen2SystemForm.getCenterPanel().removeAll();
 		screen2SystemForm.getCenterPanel().add(new UISystemForm(frame, rm.getRefId()), BorderLayout.CENTER);
-		screen2SystemForm.setSize(UIProperties.getWINDOW_SIZE_800_600());
+		screen2SystemForm.setSize(UIProperties.getWINDOW_SIZE_1000_600());
 	}
 
 	private void buildScreen2() throws Exception {
