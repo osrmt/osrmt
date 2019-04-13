@@ -81,6 +81,10 @@ public class FileProcess {
 	public static void exportData(Object o) throws Exception {
 		if (o != null) {
 			String className = o.getClass().getSimpleName();
+			File directory = new File("schema");
+			if (!directory.exists()) {
+				directory.mkdir();
+			}
 			String fileName = getFilePath("schema",className);
 			SerializeUtility.serialize(new File(fileName), o);
 		}
