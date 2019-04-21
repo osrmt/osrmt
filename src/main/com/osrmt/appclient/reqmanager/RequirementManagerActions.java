@@ -122,7 +122,8 @@ public class RequirementManagerActions {
 		// HELP MENU
 		actions.addApplicationAction(getSystemLog());
 		actions.addApplicationAction(getHelpAbout());
-		
+		actions.addApplicationAction(showHelp());
+
 		return actions;
 	}
 	
@@ -1241,4 +1242,16 @@ public class RequirementManagerActions {
 	}
 	
 
+	private ApplicationAction showHelp() {
+		return new ApplicationAction(ActionGroup.REQMGRHELPOSRMT,
+				null,
+				 new UIActionListener(controller.ui) {
+					public void actionExecuted(ActionEvent ae) throws Exception {
+						JFrame helpFrame = new net.sourceforge.helpgui.gui.MainFrame("/docs/help/","java");
+						helpFrame.setTitle("Help-OSRMT");
+						helpFrame.setVisible(true);
+					}
+				});
+	
+	}
 }
