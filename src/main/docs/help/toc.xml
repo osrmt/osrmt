@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+				 
+<toc>
+  <tocitem text="OSRMT" target="general/introduction.html" home="true">
+      <tocitem text="Introduction"  target="general/features.html"/>
+  </tocitem>
+  
+  <tocitem text="How to Use??">
+    <tocitem text="Table of Content"   target="howtouse/toc.html"/>
+    <tocitem text="Directory and web pages"           target="howtouse/dirweb.html"/>
+    <tocitem text="Launch HelpGUI"     target="howtouse/launch.html"/>
+    <tocitem text="Icons Themes"     target="howtouse/icons.html"/>
+  </tocitem>	
+</toc>
