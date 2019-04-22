@@ -64,6 +64,7 @@ public class ArtifactListImportForm extends UIStandardDialog {
 		setTitle(ReferenceServices.getDisplay(FormTitleGroup.ARTIFACTLISTIMPORT));
 		getCenterPanel().add(buildExportPanel(), BorderLayout.NORTH);
 		getCenterPanel().add(previewList, BorderLayout.CENTER);
+		setSize(UIProperties.getWINDOW_SIZE_700_400());
 	}
 	
 	private void addListeners() {

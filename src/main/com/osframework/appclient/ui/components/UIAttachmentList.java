@@ -142,16 +142,18 @@ public class UIAttachmentList extends MultiColumnList implements ICustomBind, IP
 	                        pop.add(getDeleteAction());
 	                        pop.addSeparator();
 	                        pop.add(getPropertiesAction());
+	                        pop.setLocation(300, 300);
+	                        pop.show(e.getComponent(), e.getX(), e.getY());
     	                } else {
     	                	if (tableId > 0) {
 		                        pop.add(getInsertFileAction());
 		                        pop.add(getInsertLinkAction());
+		                        pop.setLocation(300, 300);
+		                        pop.show(e.getComponent(), e.getX(), e.getY()); 
     	                	} else {
     	                		Debug.displayGUIMessage(ReferenceServices.getDisplay(SystemMessageFramework.SAVEARTIFACTBEFOREATTACHINGDOCUMENTS));
     	                	}
     	                }
-                        pop.setLocation(300, 300);
-                        pop.show(e.getComponent(), e.getX(), e.getY()); 
                     } 
             	} catch (Exception ex) {
             		Debug.LogException(this, ex);

@@ -180,9 +180,6 @@ public class LoginController extends LoginBaseController {
 					final ConnectionProperty cp = (ConnectionProperty) connectionList.getSelectedItem();
 					testConnection(cp);
 					ApplicationUserModel user1 = getApplicationUser();
-					if (user1.getPassword() == null || user1.getPassword().length() == 0) {
-						return;
-					}
 					AuthenticationSetting.initialize();
 					final ApplicationUserModel user = SecurityServices.authenticate(user1, true, AuthenticationSetting.isLdap());
 					if (user != null) {

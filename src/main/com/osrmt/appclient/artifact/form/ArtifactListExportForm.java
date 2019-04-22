@@ -64,7 +64,7 @@ public class ArtifactListExportForm extends UICenterSouthDialog {
 		setTitle(ReferenceServices.getDisplay(FormTitleGroup.ARTIFACTLISTEXPORT));
 		getSouthPanel().add(okCancel, BorderLayout.CENTER);
 		getCenterPanel().add(new JScrollPane(buildExportPanel()), BorderLayout.CENTER);
-		setSize(UIProperties.getWINDOW_SIZE_600_400());
+		setSize(UIProperties.getWINDOW_SIZE_700_400());
 	}
 	
 	private void addListeners() {

@@ -52,5 +52,6 @@
 	<classpathentry kind="lib" path="build-resources/common/runtime-lib/jackcess-2.1.11.jar"/>
 	<classpathentry kind="lib" path="build-resources/common/runtime-lib/ucanaccess-4.0.4.jar"/>
 	<classpathentry kind="lib" path="build-resources/common/runtime-lib/odbc.jar"/>
+	<classpathentry kind="lib" path="build-resources/common/runtime-lib/helpgui-1.1.jar"/>
 	<classpathentry kind="output" path="bin/eclipse"/>
 </classpath>
