@@ -82,6 +82,7 @@
 				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
 			</manifest>
 			<fileset dir="src/resources" includes="log4j.properties"/>
+			<fileset dir="src/main" includes="docs/**"/>
 		</jar>
 		<delete dir="${app.client.build}"/>
 	</target>
