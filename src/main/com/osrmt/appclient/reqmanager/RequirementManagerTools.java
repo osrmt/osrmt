@@ -39,7 +39,7 @@ public class RequirementManagerTools {
 			toolBar.addNewButton(m, "Toolbar - Refresh", actions.getAction(ActionGroup.REQMGRFILEREFRESH));
 			toolBar.addNewButton(m, "Toolbar - Print", actions.getAction(ActionGroup.REQMGRFILEPRINT));
 			toolBar.addNewButton(m, "Toolbar - Delete", actions.getAction(ActionGroup.REQMGREDITDELETE));
-			toolBar.addNewButton(m, "Toolbar - Cut", null);
+		//	toolBar.addNewButton(m, "Toolbar - Cut", null);
 			toolBar.addNewButton(m, "Toolbar - Move Up", actions.getAction(ActionGroup.REQMGRMOVEUP));
 			toolBar.addNewButton(m, "Toolbar - Move Down", actions.getAction(ActionGroup.REQMGRMOVEDOWN));
 			toolBar.addNewButton(m, "Toolbar - Traceability", actions.getAction(ActionGroup.VIEWTRACEABILITY));
