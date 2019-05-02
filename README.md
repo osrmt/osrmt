@@ -1,16 +1,23 @@
-- [Desktop Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.desktop_v1.6.zip)
-- [Web Application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
+- [Desktop Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.desktop_v1.6.zip)
+- [Web Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
-Open Source Requirements Management Tool (OSRMT) is a highly configurable, free open source solution for defining and managing software requirements. It gives you an easy-to-install and easy-to-use solution to document all aspects of software development life cycle (SDLC).
+Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution that gives you an easy-to-install and easy-to-use solution for defining and managing software requirements. 
 Designed to be a continuation for [OSRMT v1.5](https://sourceforge.net/projects/osrmt/).
+
+Requirements analysis is critical to the success of software products. It includes determining the needs to satisfy, resolving conflicting requirements as well as analyzing, documenting, validating and managing requirements. - adapted from Wikipedia Requirements Analysis
+
+A problem clearly stated is a problem half solved. - Dorothea Brande
+
+Every hour spent understanding the requirements better saves a week of implementation. - unknown
+
 
 ## Goals (Why is this project useful?)
 - user can "load and go" with a simple installation and one or more users can read/write each project locally or over their network;
 - application can be be used as single user desktop app or multiuser web application with centralized server and desktop or web client.
 
 ## Supported OS
-OSRMT is crossplatform application, it was tested on the following OS: Windows, Linux (Centos distribution) and MacOS.
+OSRMT is cross platform application, It was tested on: Windows, Linux (Centos distribution) and MacOS.
 
 ## Supported Databases
 Initially OSRMT doesn't need any additional DB set up after installation - just install and run the application.
@@ -23,9 +30,11 @@ But if you need external storage for the application data you can use one of the
 Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
 
 ## Documentation
-- [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing)
-- [Development manual](https://drive.google.com/open?id=1qoTxYpmqfnDeNPA96jx_uU52eqq5QtEH)
-- [User manual](https://drive.google.com/open?id=1cmMFeqjZCXUtoO3NueCaFT8V-rvnqJxo)
+- [Installation manual](https://drive.google.com/open?id=1bnLJBGR7PV-WNbKzRGq2bXXjptu8OTN3)
+- [Development manual](https://drive.google.com/open?id=1CqPniZBC2-kjTclbUubBppnjBvvwVPM0)
+- [User manual](https://drive.google.com/open?id=1Jc-3OrmYAyGjpED-ekwWCa9ngyr_m8s9)
+- [Product enhancement schedule](https://drive.google.com/open?id=1tSpc1eDQFv2bbPLfkFCjiFWieYcrlQ9Y)
+- [FAQ](https://drive.google.com/open?id=1KdeJtsmQXCysz4otO879lxlk_6NV927x)
 
 ## Users support
 If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not published yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be supported in the future.
@@ -44,8 +53,8 @@ For feature requests provide with the following information:
 If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3Bh0stVKCzl6Lgdd8uY0NbNs7CRWX)
 
 ## If you join our community you will be:
-- welcomed and helped until you are get what is expected;
-- thanked for the contribution no matter how small or in what area.
+- welcomed and supported until you are understand what is expected;
+- thanked for your contribution no matter how small or in what area.
 
 ## Getting started for users
 Currently available latest version 1.6 can be downloaded by one of the following links:

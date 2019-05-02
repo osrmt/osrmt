@@ -3,19 +3,12 @@ package com.osframework.appclient.services;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.osframework.framework.logging.Debug;
 import com.osframework.framework.utility.FileProcess;
 import com.osframework.datalibrary.common.DataAccessException;
-import com.osframework.datalibrary.common.Db;
-import com.osframework.ejb.reference.common.*;
-import com.osframework.ejb.reference.security.*;
 import com.osframework.modellibrary.common.*;
 import com.osframework.modellibrary.reportwriter.*;
 import com.osframework.modellibrary.reference.common.*;
@@ -146,7 +139,8 @@ public class SystemServices extends BaseService {
 
 
 	
-	public static void exportSystem() {
+	public static void exportSystem(JFrame frame) {
+		boolean status = true;
 		try {
 			FileProcess.exportData(SecurityServices.exportApplicationControl());
 			FileProcess.exportData(SecurityServices.exportAppControlTemplate());
@@ -163,7 +157,14 @@ public class SystemServices extends BaseService {
 			FileProcess.exportData(ReportWriterServices.exportReport());
 			
 		} catch (Exception ex) {
+			ex.printStackTrace();
+			JOptionPane.showMessageDialog(frame, "Error occur while referece export");
 			Debug.LogException("SystemService", ex);
+			status = false;
+		} finally {
+			if (status) {
+				JOptionPane.showMessageDialog(frame, "Referece export done successfully.");
+			}
 		}
 	}
 

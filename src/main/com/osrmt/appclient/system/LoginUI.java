@@ -103,9 +103,9 @@ public class LoginUI extends UIJFrame {
 		if (panelSouth == null) {
 			panelSouth = new JPanel();
 			panelSouth.setLayout(new BorderLayout());
-			panelSouth.setPreferredSize(new java.awt.Dimension(43,43));
-			panelSouth.add(getPanelOkCancel(), java.awt.BorderLayout.EAST);
+			panelSouth.setPreferredSize(new java.awt.Dimension(100,100));
 			panelSouth.add(getPanelStatusBar(), java.awt.BorderLayout.CENTER);
+			panelSouth.add(getPanelOkCancel(), java.awt.BorderLayout.SOUTH);
 		}
 		return panelSouth;
 	}

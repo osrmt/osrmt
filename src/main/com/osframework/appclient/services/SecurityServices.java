@@ -35,6 +35,16 @@ public class SecurityServices extends BaseService {
 	}
 	
 	public static ApplicationUserModel authenticate(ApplicationUserModel user, boolean suppressException, boolean ldap) throws Exception, InvalidUserLoginException, InvalidUserPasswordException {
+		if (user.getPassword() == null || user.getPassword().length() == 0) {
+			Debug.LogWarning("SecurityServices", ReferenceServices.getDisplay(SystemMessageFramework.INVALIDUSERNAME)
+					+ " or " 
+					+ ReferenceServices.getDisplay(SystemMessageFramework.INVALIDPASSWORD));
+			if (suppressException) {
+    			return null;
+    		} else {
+    			throw new InvalidUserLoginException();
+    		}
+		}
 		if (!ldap) {
 			byte[] bytes = user.getPassword().getBytes();
 			user.setPassword(SecurityUtility.hashPassword(bytes));
@@ -43,14 +53,14 @@ public class SecurityServices extends BaseService {
     	try {
     		user = getSecurityRef().authenticate(user);
     	} catch (InvalidUserLoginException e1) {
-    		Debug.LogWarning("SecurityServices", ReferenceServices.getDisplay(SystemMessageFramework.INVALIDUSERNAME) + ": " + user.getUserLogin());
+    		Debug.LogWarning("SecurityServices", ReferenceServices.getDisplay(SystemMessageFramework.INVALIDUSERNAME) + " or " + ReferenceServices.getDisplay(SystemMessageFramework.INVALIDPASSWORD));
     		if (suppressException) {
     			return null;
     		} else {
     			throw e1;
     		}
     	} catch (InvalidUserPasswordException e2) {
-    		Debug.LogWarning("SecurityServices", ReferenceServices.getDisplay(SystemMessageFramework.INVALIDPASSWORD));
+    		Debug.LogWarning("SecurityServices", ReferenceServices.getDisplay(SystemMessageFramework.INVALIDUSERNAME)+" or "+ReferenceServices.getDisplay(SystemMessageFramework.INVALIDPASSWORD));
     		if (suppressException) {
     			return null;
     		} else {

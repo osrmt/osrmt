@@ -385,7 +385,8 @@ public class RequirementManagerController extends RequirementManagerBaseControll
 		
 		this.reqTree.getTree().addMouseListener(new DoubleClickListener() {
 			public void call(ActionEvent me) {
-				if (reqTree.getSelectedNode() != null && reqTree.getSelectedNode().isLeaf()) {
+				if (reqTree.getSelectedNode() != null && reqTree.getSelectedNode().isLeaf()
+						&& reqTree.getSelectedNode().getLevel() != 1) {
 					Object o = reqTree.getSelectedObject();
 					if (o instanceof ArtifactModel) {
 						ApplicationAction action = applicationActionList.getAction(ActionGroup.REQMGREDITARTIFACT);

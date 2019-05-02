@@ -122,7 +122,8 @@ public class RequirementManagerActions {
 		// HELP MENU
 		actions.addApplicationAction(getSystemLog());
 		actions.addApplicationAction(getHelpAbout());
-		
+		actions.addApplicationAction(showHelp());
+
 		return actions;
 	}
 	
@@ -266,12 +267,13 @@ public class RequirementManagerActions {
 
 	
 	public ApplicationAction getSystemExport() {
+		RequirementManagerUI ui = controller.ui;
 		return new ApplicationAction(ActionGroup.REQMGRSYSTEMEXPORT,
 				null,
 				new UIActionListener(controller.ui) {
 					public void actionExecuted(ActionEvent me) {
 						try {
-							SystemServices.exportSystem();
+							SystemServices.exportSystem(ui);
 						} catch (Exception ex) {
 							Debug.LogException(this, ex);
 						}
@@ -1165,13 +1167,16 @@ public class RequirementManagerActions {
 		
 		MenuManager menuManager = RequirementManagerTools.getMenuManager();
 		UIPopupMenu pop = new UIPopupMenu("");
-        addEditArtifact(pop, actions, menuManager, node);
-        addRefresh(model.getProductRefId(), pop, actions, menuManager, node);
+        if(node.isLeaf() && node.getLevel()!=1)
+			addEditArtifact(pop, actions, menuManager, node);
+		addRefresh(model.getProductRefId(), pop, actions, menuManager, node);
         addTraceArtifacts(pop, actions, menuManager, node);
         addExport(pop, actions, menuManager, node);
         addFileNew(pop, actions, menuManager);
-        pop.addSeparator();
-        addDelete(pop, actions, menuManager, node);
+        if(node.isLeaf() && node.getLevel()!=1) {
+            pop.addSeparator();
+        	addDelete(pop, actions, menuManager, node);
+        }
         pop.show(controller.getReqTree().getTree(), x, y); 
 		resetSystemState();
 	}
@@ -1237,4 +1242,17 @@ public class RequirementManagerActions {
 	}
 	
 
+	private ApplicationAction showHelp() {
+		return new ApplicationAction(ActionGroup.REQMGRHELPOSRMT,
+				null,
+				 new UIActionListener(controller.ui) {
+					public void actionExecuted(ActionEvent ae) throws Exception {
+						JFrame helpFrame = new net.sourceforge.helpgui.gui.MainFrame("/docs/help/","java");
+						helpFrame.setTitle("Help-OSRMT");
+						helpFrame.setVisible(true);
+					}
+				});
+	
+	}
+	
 }
