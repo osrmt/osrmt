@@ -1146,7 +1146,7 @@ public class RequirementManagerActions {
 	private boolean isTreeArtifactSelected() {
 		if (controller.getReqTree().isNodeSelected()) {
 			Object o = controller.getReqTree().getSelectedObject();
-			if (o != null && o instanceof ArtifactModel) {
+			if (o != null && o instanceof ArtifactModel && controller.getReqTree().getSelectedNode().isLeaf()) {
 				return true;
 			}
 		}
