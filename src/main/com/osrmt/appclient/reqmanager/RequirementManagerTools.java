@@ -90,7 +90,7 @@ public class RequirementManagerTools {
 		menuManager.addMenuItem("Menu Edit - Artifact", actions.getAction(ActionGroup.REQMGREDITARTIFACT), true, Keys.getShift_F2());
 		menuManager.addMenuItem("Menu Edit - Move Up", actions.getAction(ActionGroup.REQMGRMOVEUP), false);
 		menuManager.addMenuItem("Menu Edit - Move Down", actions.getAction(ActionGroup.REQMGRMOVEDOWN), true);
-		menuManager.addMenuItem("Menu Edit - Cut", actions.getAction(ActionGroup.REQMGREDITCUT), false);
+		//menuManager.addMenuItem("Menu Edit - Cut", actions.getAction(ActionGroup.REQMGREDITCUT), false);
 		menuManager.addMenuItem("Menu Edit - Copy", actions.getAction(ActionGroup.REQMGREDITCOPY), false);
 		menuManager.addMenuItem("Menu Edit - Paste", actions.getAction(ActionGroup.REQMGREDITPASTE), true);
 		menuManager.addMenuItem("Menu Edit - Delete", actions.getAction(ActionGroup.REQMGREDITDELETE), true,Keys.get_Del());
