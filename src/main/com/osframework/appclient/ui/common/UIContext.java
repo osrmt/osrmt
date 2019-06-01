@@ -30,7 +30,10 @@ public class UIContext  {
 	
 	 @Override
 	public boolean equals(Object obj) {
-		 return getContextId() == ((UIContext)obj).getContextId();
+		 if (obj != null) {
+			 return getContextId() == ((UIContext)obj).getContextId();
+		 }
+		return false;
 	}
 	 
 }
