@@ -56,7 +56,7 @@ public class EnvironmentProperty implements Serializable  {
 				encoder.close();
 			}
 			else {
-				System.out.println("Unable to open the encoder "); // Noncompliant; NullPointerException will be thrown
+				Debug.LogError("EnvironmentProperty", "Unable to open the encoder "); // Noncompliant; NullPointerException will be thrown
 			}
 		}
 	}
