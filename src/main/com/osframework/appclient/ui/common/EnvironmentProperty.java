@@ -52,7 +52,12 @@ public class EnvironmentProperty implements Serializable  {
 			
 		} catch (Exception ex) {
 			Debug.LogException("EnvironmentProperty", ex);
-			encoder.close();
+			if (encoder != null) {
+				encoder.close();
+			}
+			else {
+				Debug.LogError("EnvironmentProperty", "Unable to open the encoder "); // Noncompliant; NullPointerException will be thrown
+			}
 		}
 	}
 	
@@ -69,6 +74,7 @@ public class EnvironmentProperty implements Serializable  {
 			        if (ci.isActive()) {
 			        	environments.add(ci);
 			        }
+			        
 		        }
 			} catch (ArrayIndexOutOfBoundsException ae) {
 				return environments;
@@ -77,6 +83,11 @@ public class EnvironmentProperty implements Serializable  {
 			Debug.LogException("EnvironmentProperty", ex);
 			decoder.close();
 			throw ex;
+		}
+		finally {
+			if (decoder != null) {
+				decoder.close();
+			}
 		}
 	}
 

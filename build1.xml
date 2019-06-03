@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="osrmt">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="osrmt.classpath">
+        <pathelement location="bin/eclipse"/>
+        <pathelement location="build-resources/common/compile-lib/jbossall-client.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/animation-1.1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/antlr.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/binding-1.0.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/castor_2.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/castor.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/classes12.zip"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-beanutils.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-collections-3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-dbcp-1.2.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-digester-1.7.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-digester.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-fileupload.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-io-1.3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-logging.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-pool-1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-validator.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/forms-1.0.5.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ijtree.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/itext-1.4.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jakarta-oro.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jasperreports-1.3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/javaee.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jdom.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jgraph.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jlfgr-1_1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/js.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jtds-1.2.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/log4j.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/looks-2.0.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/mail.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/myfaces-all.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/mysql-connector-java-5.1.47-bin.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ojdbc8-11.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/postgresql-8.1-405.jdbc3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/resources.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/struts.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/validation-1.0.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xalan.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xerces.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xercesImpl.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xml-apis.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-lang-2.6.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-logging-1.1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/hsqldb.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jackcess-2.1.11.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ucanaccess-4.0.4.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/odbc.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin/eclipse"/>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/main">
+                <exclude name="**/*.java"/>
+                <exclude name="com/osgen/**"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/resources">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/main/com/osgen">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin/eclipse"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin/eclipse" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main"/>
+            <src path="src/resources"/>
+            <src path="src/main/com/osgen"/>
+            <exclude name="com/osgen/**"/>
+            <classpath refid="osrmt.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="JavaToJavaConverter.59">
+        <java classname="oracle.jdbc.driver.JavaToJavaConverter$59" failonerror="true" fork="yes">
+            <classpath refid="osrmt.classpath"/>
+        </java>
+    </target>
+    <target name="RequirementManagerController">
+        <java classname="com.osrmt.appclient.reqmanager.RequirementManagerController" failonerror="true" fork="yes">
+            <classpath refid="osrmt.classpath"/>
+        </java>
+    </target>
+</project>

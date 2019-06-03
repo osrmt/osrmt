@@ -111,9 +111,9 @@ public class FormControl implements IHtmlApplicationControl {
 
 	public String getHtmlScript() {
 		if (this.custom != null) {
-			return null;
-		} else {
 			return this.custom.getHtmlScript();
+		} else {
+			return null;
 		}
 	}
 

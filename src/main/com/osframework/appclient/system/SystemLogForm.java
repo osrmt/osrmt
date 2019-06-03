@@ -55,7 +55,7 @@ public class SystemLogForm extends UICenterSouthDialog {
 		SystemLogForm s = new SystemLogForm(new JFrame(), false);
 		s.setVisible(true);
 	}
-	
+	@Override
 	public void initialize() {
 		try {
 			setTitle(ReferenceServices.getDisplay(FormTitleFramework.SYSTEMLOG));

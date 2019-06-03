@@ -1,0 +1,220 @@
+<project name="osrmt" default="dist" basedir=".">
+  <description>OSRMT build</description>
+
+  <property name="dist" location="dist"/>
+
+  <property name="dir.root" location="."/>
+  <property name="src.root" location="src/main"/>
+  <property name="reports.root" location="reports"/>
+
+  <property name="app.client.src" location="${src.root}"/>
+  <property name="app.client.build" location="${dist}/app.client/build"/>
+  <property name="app.client.dist" location="${dist}/app.client"/>
+
+  <property name="ejb.src" location="${src.root}"/>
+  <property name="ejb.build" location="${dist}/ejb/build"/>
+  <property name="ejb.dist" location="${dist}/ejb"/>
+
+  <property name="war.src" location="${src.root}/com/osrmt/www"/>
+  <property name="war.build" location="${dist}/war/build"/>
+  <property name="war.dist" location="${dist}/war"/>
+
+  <property name="ear.build" location="${dist}/ear/build"/>
+  <property name="ear.dist" location="${dist}/ear"/>
+
+  <property name="desktop.app.dist" location="${dist}/desktop"/>
+  <property name="web.app.dist" location="${dist}/web"/>
+
+  <property name="app.client.root" location="build-resources/appclient"/>
+  <property name="app.client.meta" location="${app.client.root}/meta"/>
+  <property name="app.client.resources" location="${app.client.root}/resources"/>
+
+  <property name="ejb.root" location="build-resources/ejb"/>
+  <property name="ejb.meta" location="${ejb.root}/meta"/>
+  <property name="ejb.resources" location="${ejb.root}/resources"/>
+
+  <property name="db.root" location="build-resources/db"/>
+  <property name="db.init" location="build-resources/db-init/common"/>
+  <property name="db.init.app.client" location="build-resources/db-init/app-client"/>
+  <property name="db.init.web.app" location="build-resources/db-init/web-app"/>
+
+  <property name="ear.root" location="build-resources/ear"/>
+  <property name="ear.meta" location="${ear.root}/meta"/>
+
+  <property name="web.app.root" location="build-resources/web-app"/>
+
+  <property name="common.root" location="build-resources/common"/>
+  <property name="common.compile.libs" location="${common.root}/compile-lib"/>
+  <property name="common.runtime.libs" location="${common.root}/runtime-lib"/>
+  <property name="common.resources" location="${common.root}/resources"/> <!-- originally connection xmls -->
+
+	
+	<!-- START DESKTOP APPLICATION BUILD -->
+	<path id="build.classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="${common.compile.libs}">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${common.runtime.libs}">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	</path>
+
+	<target name="app.client.cleanup">
+		<delete dir="${app.client.build}"/>
+		<delete dir="${app.client.dist}"/>
+	</target>
+	<target name="app.client.init" depends="app.client.cleanup">
+		<mkdir dir="${app.client.build}"/>
+		<mkdir dir="${app.client.dist}"/>
+		<delete dir="${desktop.app.dist}"/>
+	</target>
+	<target name="app.client.compile" depends="app.client.init">
+		<javac includeantruntime="false" srcdir="${src.root}" destdir="${app.client.build}"> <!--  excludes="com/osrmt/www,com/osrmt/www/**" -->
+			<classpath refid="build.classpath"/>
+		</javac>
+	</target>
+	<target name="app.client.build" depends="app.client.compile">
+		<jar jarfile="${app.client.dist}/app-client.jar" basedir="${app.client.build}">
+			<metainf dir="${app.client.meta}"/>
+			<manifest>
+				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
+			</manifest>
+			<fileset dir="src/resources" includes="log4j.properties"/>
+			<fileset dir="src/main" includes="docs/**"/>
+		</jar>
+		<delete dir="${app.client.build}"/>
+	</target>
+	<target name="app.client.assemble" depends="app.client.build">
+		<mkdir dir="${desktop.app.dist}"/>
+		<copy todir="${desktop.app.dist}">
+			<fileset dir="${app.client.resources}"/>
+			<fileset dir="${app.client.dist}"/>
+			<fileset dir="${common.runtime.libs}"/>
+			<fileset dir="${common.compile.libs}"/>
+			<fileset dir="${common.resources}"/>
+			<fileset dir="${dir.root}" includes="connection.xml,connection.*.xml"/>
+			<fileset dir="${db.root}"/>
+			<fileset dir="${db.init}"/>
+			<fileset dir="${db.init.app.client}"/>
+		</copy>
+		
+		<zip destfile="${dist}/osrmt.desktop.zip">
+			<zipfileset dir="${desktop.app.dist}"/>
+			<zipfileset dir="${reports.root}" prefix="reports"/>
+		</zip>
+
+		<delete dir="${app.client.build}"/>
+	</target>
+	<!-- END DESKTOP APPLICATION BUILD -->
+
+	<!-- START WEB APPLICATION BUILD -->
+	<path id="build.classpath.with.app.client">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="${common.compile.libs}">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${common.runtime.libs}">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	  <fileset dir="${app.client.dist}">
+		<include name="*.jar"/>
+	  </fileset>
+	</path>
+	
+	<target name="ejb.clean">
+		<delete dir="${ejb.dist}"/>
+		<delete dir="${ejb.build}"/>
+	</target>
+	<target name="ejb.build" depends="ejb.clean">
+		<mkdir dir="${ejb.build}"/>
+		<javac includeantruntime="false" srcdir="${ejb.src}" destdir="${ejb.build}"  excludes="com/osrmt/www,com/osrmt/www/**,com/osrmt/appclient,com/osrmt/appclient/**"> <!--  -->
+			<classpath refid="build.classpath.with.app.client"/>
+		</javac>
+
+		<mkdir dir="${ejb.dist}"/>
+		<jar jarfile="${ejb.dist}/osrmt-ejb.jar" basedir="${ejb.build}">
+			<metainf dir="${ejb.meta}"/>
+			<fileset dir="${ejb.resources}"/>
+		</jar>
+		<delete dir="${ejb.build}"/>
+	</target>
+
+	<path id="build.classpath.with.appclient.and.ejb">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="${common.compile.libs}">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${common.runtime.libs}">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	  <pathelement location="${app.client.dist}/app-client.jar"/>
+	  <pathelement location="${ejb.dist}/osrmt-ejb.jar"/>
+	</path>
+
+	<target name="war.clean">
+		<delete dir="${war.dist}"/>
+	</target>
+	<target name="war.build" depends="war.clean">
+		<mkdir dir="${war.dist}"/>
+		<war destfile="${war.dist}/osrmt.war" webxml="${war.src}/WEB-INF/web.xml">
+			<fileset dir="${war.src}"/>
+			<lib dir="${app.client.dist}"></lib>
+		</war>
+	</target>
+
+	<target name="ear.clean">
+		<delete dir="ear.dist"/>
+	</target>
+	<target name="ear.libs.copy" depends="app.client.build,ejb.build,war.build,ear.clean">
+		<mkdir dir="${ear.dist}"/>
+		<mkdir dir="${ear.build}"/>
+		<copy todir="${ear.build}">
+		  <fileset dir="${app.client.dist}"/>
+		  <fileset dir="${ejb.dist}"/>
+		  <fileset dir="${war.dist}"/>
+		  <fileset dir="${common.runtime.libs}"/>
+		</copy>
+	</target>
+	<target name="ear.build" depends="ear.libs.copy">
+		<ear destfile="${ear.dist}/osrmt.ear" appxml="${ear.meta}/application.xml">
+			<fileset dir="${ear.build}" includes="*.jar,*.war,*.zip"/>
+		</ear>
+		<delete dir="${ear.build}"/>
+	</target>
+
+	<target name="web.app.clean" depends="ear.build"> <!--  depends="ear.build" -->
+		<delete dir="${web.app.dist}"/>
+	</target>
+	<target name="web.app.server.copy" depends="web.app.clean">
+		<mkdir dir="${web.app.dist}"/>
+		<copy todir="${web.app.dist}">
+			<fileset dir="${web.app.root}"/>
+		</copy>		
+	</target>
+	<target name="web.app.assemble" depends="web.app.server.copy">
+		<!-- Use touch to set modification time of all stubs to current time. This will force zip task to update stub files inside the zip -->
+		<tstamp> <format property="touch.time" pattern="MM/dd/yyyy hh:mm aa"/>  </tstamp>
+		<touch datetime="${touch.time}">
+			<fileset dir="${ear.dist}" />
+		</touch>
+		<zip destfile="${web.app.dist}/jboss-4.0.3.zip" update="true">
+			<zipfileset dir="${common.runtime.libs}" prefix="jboss-4.0.3/server/default/lib" includes="jasperreports-1.3.1.jar,mysql-connector-java-5.1.47-bin.jar,ojdbc8-11.jar,classes12.zip,hsqldb.jar,jackcess-2.1.11.jar,odbc.jar,ucanaccess-4.0.4.jar,commons-logging-1.1.3.jar,commons-lang-2.6.jar,mssql-jdbc-6.4.0.jre7.jar"/>
+			<zipfileset dir="${common.resources}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${dir.root}" prefix="jboss-4.0.3/bin" includes="connection.xml,connection.*.xml"/>
+			<zipfileset dir="${ear.dist}" prefix="jboss-4.0.3/server/default/deploy"/>
+			<zipfileset dir="${app.client.dist}" prefix="jboss-4.0.3/server/default/lib"/>
+			<zipfileset dir="${db.root}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${db.root}" prefix="dbscripts"/>
+			<zipfileset dir="${db.init}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${db.init.web.app}" prefix="jboss-4.0.3/bin"/>
+			<zipfileset dir="${reports.root}" prefix="jboss-4.0.3/bin/reports"/>
+		</zip>
+		<move file="${web.app.dist}/jboss-4.0.3.zip" tofile="${web.app.dist}/osrmt.wep.app.zip"/>
+	</target>
+	<!-- END WEB APPLICATION BUILD -->
+	<!-- TODO delete all intermediate folders -->
+</project>
