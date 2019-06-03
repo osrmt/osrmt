@@ -29,6 +29,13 @@ public class UIProperties {
 	}
 	
 	/**
+	 * Dimension of 700 pixels wide by 400 pixels high
+	 */
+	public static final Dimension getWINDOW_SIZE_700_400() {
+		return new Dimension(700,400);
+	}
+
+	/**
 	 * Dimension of 600 pixels wide by 400 pixels high
 	 */
 	public static final Dimension getWINDOW_SIZE_600_400() {
@@ -47,6 +54,9 @@ public class UIProperties {
 		return new Dimension(800,600);
 	}
 
+	public static final Dimension getWINDOW_SIZE_1000_600() {
+		return new Dimension(1000,600);
+	}
 	public static final Dimension getWINDOW_SIZE_900_675() {
 		return new Dimension(900,675);
 	}

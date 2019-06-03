@@ -138,6 +138,56 @@
 			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
 			<classpath path="path/to/sonar/ant/task/lib/sonarqube-ant-task-*.jar" />
 		</taskdef>
+	<!-- START DESKTOP APPLICATION BUILD -->
+	<path id="build.classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="${common.compile.libs}">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${common.runtime.libs}">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	</path>
+
+	<target name="app.client.cleanup">
+		<delete dir="${app.client.build}"/>
+		<delete dir="${app.client.dist}"/>
+	</target>
+	<target name="app.client.init" depends="app.client.cleanup">
+		<mkdir dir="${app.client.build}"/>
+		<mkdir dir="${app.client.dist}"/>
+		<delete dir="${desktop.app.dist}"/>
+	</target>
+	<target name="app.client.compile" depends="app.client.init">
+		<javac includeantruntime="false" srcdir="${src.root}" destdir="${app.client.build}"> <!--  excludes="com/osrmt/www,com/osrmt/www/**" -->
+			<classpath refid="build.classpath"/>
+		</javac>
+	</target>
+	<target name="app.client.build" depends="app.client.compile">
+		<jar jarfile="${app.client.dist}/app-client.jar" basedir="${app.client.build}">
+			<metainf dir="${app.client.meta}"/>
+			<manifest>
+				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
+			</manifest>
+			<fileset dir="src/resources" includes="log4j.properties"/>
+			<fileset dir="src/main" includes="docs/**"/>
+		</jar>
+		<delete dir="${app.client.build}"/>
+	</target>
+	<target name="app.client.assemble" depends="app.client.build">
+		<mkdir dir="${desktop.app.dist}"/>
+		<copy todir="${desktop.app.dist}">
+			<fileset dir="${app.client.resources}"/>
+			<fileset dir="${app.client.dist}"/>
+			<fileset dir="${common.runtime.libs}"/>
+			<fileset dir="${common.compile.libs}"/>
+			<fileset dir="${common.resources}"/>
+			<fileset dir="${dir.root}" includes="connection.xml,connection.*.xml"/>
+			<fileset dir="${db.root}"/>
+			<fileset dir="${db.init}"/>
+			<fileset dir="${db.init.app.client}"/>
+		</copy>
 		
 		<!-- Execute SonarQube Scanner for Ant Analysis -->
 		<sonar:sonar />
