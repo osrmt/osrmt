@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="osrmt analysed with Ant" xmlns:sonar="antlib:org.sonar.ant">
+    <property environment="env"/>
+	<property name="target" value="1.8"/>
+	<property name="src.dir" value="src" />
+    <property name="sonar.host.url" value="http://localhost:9000" />
+	<property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
+	<property name="sonar.projectName" value="Example of SonarQube Scanner for Ant Usage" />
+	<property name="sonar.projectVersion" value="1.0" />
+	<property name="sonar.sources" value="src" />
+	<property name="sonar.binaries" value="target" />
+	<property name="sonar.sourceEncoding" value="UTF-8" />
+	<property name="sonar.java.binaries" location="./bin/eclipse"/>
+    <path id="osrmt.classpath">
+        <pathelement location="bin/eclipse"/>
+        <pathelement location="build-resources/common/compile-lib/jbossall-client.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/animation-1.1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/antlr.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/binding-1.0.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/castor_2.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/castor.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/classes12.zip"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-beanutils.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-collections-3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-dbcp-1.2.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-digester-1.7.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-digester.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-fileupload.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-io-1.3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-logging.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-pool-1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-validator.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/forms-1.0.5.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ijtree.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/itext-1.4.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jakarta-oro.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jasperreports-1.3.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/javaee.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jdom.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jgraph.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jlfgr-1_1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/js.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jtds-1.2.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/log4j.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/looks-2.0.1.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/mail.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/myfaces-all.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/mysql-connector-java-5.1.47-bin.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ojdbc8-11.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/postgresql-8.1-405.jdbc3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/resources.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/struts.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/validation-1.0.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xalan.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xerces.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xercesImpl.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/xml-apis.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-lang-2.6.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/commons-logging-1.1.3.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/hsqldb.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/jackcess-2.1.11.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/ucanaccess-4.0.4.jar"/>
+        <pathelement location="build-resources/common/runtime-lib/odbc.jar"/>
+    </path>
+	
+    <target name="init">
+        <mkdir dir="bin/eclipse"/>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/main">
+                <exclude name="**/*.java"/>
+                <exclude name="com/osgen/**"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/resources">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/eclipse">
+            <fileset dir="src/main/com/osgen">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    
+	<target name="clean">
+        <delete dir="bin/eclipse"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" destdir="bin/eclipse" includeantruntime="false" srcdir="${src.dir}" target="${target}">
+            <src path="src/main"/>
+            <src path="src/resources"/>
+            <src path="src/main/com/osgen"/>
+            <exclude name="com/osgen/**"/>
+            <classpath refid="osrmt.classpath"/>
+        </javac>
+    </target>
+    
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    
+	<target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    
+	<target name="JavaToJavaConverter.59">
+        <java classname="oracle.jdbc.driver.JavaToJavaConverter$59" failonerror="true" fork="yes">
+            <classpath refid="osrmt.classpath"/>
+        </java>
+    </target>
+    
+	<target name="RequirementManagerController">
+        <java classname="com.osrmt.appclient.reqmanager.RequirementManagerController" failonerror="true" fork="yes">
+            <classpath refid="osrmt.classpath"/>
+        </java>
+    </target>
+	
+	<target name="sonar" depends="build">
+		<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+			<classpath path="path/to/sonar/ant/task/lib/sonarqube-ant-task-*.jar" />
+		</taskdef>
+	<!-- START DESKTOP APPLICATION BUILD -->
+	<path id="build.classpath">
+	  <pathelement path="${classpath}"/>
+	  <fileset dir="${common.compile.libs}">
+		<include name="*.jar"/>
+	  </fileset>
+	  <fileset dir="${common.runtime.libs}">
+		<include name="*.jar"/>
+		<include name="*.zip"/>
+	  </fileset>
+	</path>
+
+	<target name="app.client.cleanup">
+		<delete dir="${app.client.build}"/>
+		<delete dir="${app.client.dist}"/>
+	</target>
+	<target name="app.client.init" depends="app.client.cleanup">
+		<mkdir dir="${app.client.build}"/>
+		<mkdir dir="${app.client.dist}"/>
+		<delete dir="${desktop.app.dist}"/>
+	</target>
+	<target name="app.client.compile" depends="app.client.init">
+		<javac includeantruntime="false" srcdir="${src.root}" destdir="${app.client.build}"> <!--  excludes="com/osrmt/www,com/osrmt/www/**" -->
+			<classpath refid="build.classpath"/>
+		</javac>
+	</target>
+	<target name="app.client.build" depends="app.client.compile">
+		<jar jarfile="${app.client.dist}/app-client.jar" basedir="${app.client.build}">
+			<metainf dir="${app.client.meta}"/>
+			<manifest>
+				<attribute name="Main-Class" value="com.osrmt.appclient.reqmanager.RequirementManagerController"/>
+			</manifest>
+			<fileset dir="src/resources" includes="log4j.properties"/>
+			<fileset dir="src/main" includes="docs/**"/>
+		</jar>
+		<delete dir="${app.client.build}"/>
+	</target>
+	<target name="app.client.assemble" depends="app.client.build">
+		<mkdir dir="${desktop.app.dist}"/>
+		<copy todir="${desktop.app.dist}">
+			<fileset dir="${app.client.resources}"/>
+			<fileset dir="${app.client.dist}"/>
+			<fileset dir="${common.runtime.libs}"/>
+			<fileset dir="${common.compile.libs}"/>
+			<fileset dir="${common.resources}"/>
+			<fileset dir="${dir.root}" includes="connection.xml,connection.*.xml"/>
+			<fileset dir="${db.root}"/>
+			<fileset dir="${db.init}"/>
+			<fileset dir="${db.init.app.client}"/>
+		</copy>
+		
+		<!-- Execute SonarQube Scanner for Ant Analysis -->
+		<sonar:sonar />
+	</target>
+
+	<!-- ========= The main target "all" ========= -->
+	<target name="all" depends="clean,build-project,sonar" />
+	
+</project>
