@@ -764,11 +764,13 @@ public class RequirementManagerActions {
 					resetSystemState();
 				} else {
 					JOptionPane.showMessageDialog(frame, "Please Enter valid Product ");
+					inputNewProduct.dispose();
 					createProductInputPopup();
 				}
 			}
 		}, ReferenceServices.getMsg(FormTitleFramework.NEWPRODUCT), controller.ui,
 				ReferenceServices.getMsg(FormButtonTextFramework.PRODUCT));
+		
 		inputNewProduct.setVisible(true);
 	}
 
