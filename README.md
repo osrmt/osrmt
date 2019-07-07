@@ -1,4 +1,4 @@
-- [Desktop Application v1.8](https://github.com/osrmt/osrmt/releases/download/1.7/osrmt.desktop_1.7.zip)
+- [Desktop Application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt_1.8_desktop.zip)
 - [Web Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
@@ -27,14 +27,11 @@ But if you need external storage for the application data you can use one of the
 - MySQL;
 - MS Sql;
 - PostgreSQL.
-Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual](https://drive.google.com/file/d/1rY0CXsc31NvdmOEmNASqQ0XOiDXX_s8J/view?usp=sharing) Make sure to update connection.xml from corresponding connection.<DBMS>.xml
+Follow 'Create and Install new database' and 'Import database contents' sections steps in [Installation manual]
+Make sure to update connection.xml from corresponding connection.<DBMS>.xml
 
 ## Documentation
-- [Installation manual](https://drive.google.com/open?id=1bnLJBGR7PV-WNbKzRGq2bXXjptu8OTN3)
-- [Development manual](https://drive.google.com/open?id=1CqPniZBC2-kjTclbUubBppnjBvvwVPM0)
-- [User manual](https://drive.google.com/open?id=1Jc-3OrmYAyGjpED-ekwWCa9ngyr_m8s9)
-- [Product enhancement schedule](https://drive.google.com/open?id=1tSpc1eDQFv2bbPLfkFCjiFWieYcrlQ9Y)
-- [FAQ](https://drive.google.com/open?id=1KdeJtsmQXCysz4otO879lxlk_6NV927x)
+Kindly refer documentation folder available under build zip file for documentation of the product.
 
 ## Users support
 If you found any problem review [here](https://github.com/osrmt/osrmt/issues/new) if your issue is not published yet or [create request to fix the issue](https://github.com/osrmt/osrmt/issues/new). As of 20-Feb-2019 project is active and going to be supported in the future.
@@ -58,7 +55,7 @@ If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3B
 
 ## Getting started for users
 Currently available latest version 1.8 can be downloaded by one of the following links:
- - [Desktop application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt.desktop_1.8.zip)
+ - [Desktop application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt_1.8_desktop.zip)
 Currently available latest version 1.6 can be downloaded by one of the following links:
  - [Web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
