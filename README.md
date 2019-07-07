@@ -1,4 +1,4 @@
-- [Desktop Application v1.7](https://github.com/osrmt/osrmt/releases/download/1.7/osrmt.desktop_1.7.zip)
+- [Desktop Application v1.8](https://github.com/osrmt/osrmt/releases/download/1.7/osrmt.desktop_1.7.zip)
 - [Web Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
@@ -57,8 +57,9 @@ If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3B
 - thanked for your contribution no matter how small or in what area.
 
 ## Getting started for users
+Currently available latest version 1.8 can be downloaded by one of the following links:
+ - [Desktop application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt.desktop_1.8.zip)
 Currently available latest version 1.6 can be downloaded by one of the following links:
- - [Desktop application v1.7](https://github.com/osrmt/osrmt/releases/download/1.7/osrmt.desktop_1.7.zip)
  - [Web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 ### Pre-installation requirements
