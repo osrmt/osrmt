@@ -35,7 +35,7 @@ public class UICenterSouthDialog extends UIJDialog {
 		initialize();
 	}
 	
-	private void initialize() {
+	public void initialize() {
 		this.setResizable(true);
 		this.setLayout(new BorderLayout());
 		this.add(southPanel, BorderLayout.SOUTH);

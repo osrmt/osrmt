@@ -1,4 +1,4 @@
-<project name="osrmt" default="dist" basedir=".">
+<project name="osrmt" default="app.client.assemble" basedir=".">
   <description>OSRMT build</description>
 
   <property name="dist" location="dist"/>
