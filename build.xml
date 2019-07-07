@@ -6,6 +6,7 @@
   <property name="dir.root" location="."/>
   <property name="src.root" location="src/main"/>
   <property name="reports.root" location="reports"/>
+  <property name="documents.root" location="documents"/>
 
   <property name="app.client.src" location="${src.root}"/>
   <property name="app.client.build" location="${dist}/app.client/build"/>
@@ -103,6 +104,7 @@
 		<zip destfile="${dist}/osrmt.desktop.zip">
 			<zipfileset dir="${desktop.app.dist}"/>
 			<zipfileset dir="${reports.root}" prefix="reports"/>
+			<zipfileset dir="${documents.root}" prefix="documents"/>
 		</zip>
 
 		<delete dir="${app.client.build}"/>
