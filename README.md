@@ -55,8 +55,6 @@ If you have any questions refer to [FAQ](https://drive.google.com/open?id=1BTU3B
 ## Getting started for users
 Currently available latest version 1.8 can be downloaded by one of the following links:
  - [Desktop application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt_1.8_desktop.zip)
-Currently available latest version 1.6 can be downloaded by one of the following links:
- - [Web application v1.6](https://github.com/osrmt/osrmt/raw/release/v1.6/build/OSRMT.web_v1.6.zip)
 
 ### Pre-installation requirements
  - Windows, Linux or MacOS
