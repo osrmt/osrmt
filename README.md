@@ -1,5 +1,4 @@
 - [Desktop Application v1.8](https://github.com/osrmt/osrmt/releases/download/1.8/osrmt_1.8_desktop.zip)
-- [Web Application v1.6](https://github.com/osrmt/osrmt/releases/download/v1.6/OSRMT.web_v1.6.zip)
 
 # Open Source Requirements Management Tool
 Open Source Requirements Management Tool (OSRMT) is a configurable, free open source solution that gives you an easy-to-install and easy-to-use solution for defining and managing software requirements. 
@@ -90,7 +89,7 @@ Follow next steps only in case you want to use external DBMS (Oracle, MySQL, MS 
  9) you are ready to work with desktop OSRMT application
  10) run run.bat\/run.sh depending on target OS (Note: for Linux/MacOS users run in termial 'chmod +x run.sh' in order to give permission to execute it)
 
-#### Web
+#### Web ( Web version will be available from ORSMT 1.9 onwards)
 Follow next steps only in case you want to use external DBMS (Oracle, MySQL, MS SQL, PostgreSQL), in the other case go to step 10)
  1) go to installation folder
  2) enter 'dbscripts/schema' directory
