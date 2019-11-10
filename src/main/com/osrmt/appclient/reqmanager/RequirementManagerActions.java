@@ -181,7 +181,8 @@ public class RequirementManagerActions {
 					tmpArtifact = JOptionPane.showInputDialog(frame,
 							ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
 							ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
-					if(tmpArtifact == null || tmpArtifact.isEmpty())//TODO  make a function that checks if the artifact name is valid
+					//TODO  make a function that checks if the artifact name is valid(too large strings are still a problem)
+					if(tmpArtifact == null || tmpArtifact.isEmpty())
 					{
 						//tell the user to enter a valid? name
 						JOptionPane.showMessageDialog(frame,
