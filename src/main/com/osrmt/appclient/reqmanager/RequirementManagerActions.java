@@ -170,32 +170,52 @@ public class RequirementManagerActions {
 	public ApplicationAction getSystemNewArtifact() {
 		return new ApplicationAction(ActionGroup.REQMGRSYSTEMNEWARTIFACT, null, new UIActionListener(controller.ui) {
 			public void actionExecuted(ActionEvent me) {
-				final String newArtifact = JOptionPane.showInputDialog(frame,
-						ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
-						ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
-				if (newArtifact != null) {
-					referenceSearch = new UIReferenceSearch(controller.ui);
-					referenceSearch.start(ReferenceGroup.Artifact,
-							ReferenceServices.getMsg(FormTitleFramework.COPYFIELDSSECURITYFROM), true);
-					referenceSearch.setSize(UIProperties.getDIALOG_SIZE_450_330());
-					referenceSearch.addOkActionListener(new UIActionListener(controller.ui) {
-						public void actionExecuted(ActionEvent e) {
-							try {
-								// TODO should force selection before ok
-								if (referenceSearch.getSelectedValue() != null) {
-									SecurityServices.addNewArtifact(newArtifact,
-											referenceSearch.getSelectedValue().getRefId());
-									referenceSearch.dispose();
-									Debug.displayGUIMessage(newArtifact);
-								}
-								resetSystemState();
-							} catch (Exception ex) {
-								Debug.LogException(this, ex);
-							}
-						}
-					});
-					referenceSearch.setVisible(true);
+				
+				final String newArtifact;
+				
+				//The loop makes sure that the new artifact has a name
+				String tmpArtifact = null;
+				boolean keepAsking = true;
+				while(keepAsking){
+					//get the artifact name
+					tmpArtifact = JOptionPane.showInputDialog(frame,
+							ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
+							ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
+					if(tmpArtifact == null || tmpArtifact.isEmpty())//TODO  make a function that checks if the artifact name is valid
+					{
+						//tell the user to enter a valid? name
+						JOptionPane.showMessageDialog(frame,
+							ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
+							ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
+					}
+					else
+					{
+						keepAsking = false;//we have the new artifact name. Break the loop
+					}
 				}
+				newArtifact = tmpArtifact;
+				
+				referenceSearch = new UIReferenceSearch(controller.ui);
+				referenceSearch.start(ReferenceGroup.Artifact,
+						ReferenceServices.getMsg(FormTitleFramework.COPYFIELDSSECURITYFROM), true);
+				referenceSearch.setSize(UIProperties.getDIALOG_SIZE_450_330());
+				referenceSearch.addOkActionListener(new UIActionListener(controller.ui) {
+					public void actionExecuted(ActionEvent e) {
+						try {
+							// TODO should force selection before ok
+							if (referenceSearch.getSelectedValue() != null) {
+								SecurityServices.addNewArtifact(newArtifact,
+										referenceSearch.getSelectedValue().getRefId());
+								referenceSearch.dispose();
+								Debug.displayGUIMessage(newArtifact);
+							}
+							resetSystemState();
+						} catch (Exception ex) {
+							Debug.LogException(this, ex);
+						}
+					}
+				});
+				referenceSearch.setVisible(true);
 			}
 		});
 	}
