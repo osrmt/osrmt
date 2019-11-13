@@ -171,28 +171,18 @@ public class RequirementManagerActions {
 		return new ApplicationAction(ActionGroup.REQMGRSYSTEMNEWARTIFACT, null, new UIActionListener(controller.ui) {
 			public void actionExecuted(ActionEvent me) {
 				
-				final String newArtifact;
-				
-				//The loop makes sure that the new artifact has a name
-				String tmpArtifact = null;
-				boolean keepAsking = true;
-				while(keepAsking){
-					//get the artifact name
-					tmpArtifact = JOptionPane.showInputDialog(frame,
-							ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
-							ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
-					//TODO  make a function that checks if the artifact name is valid(too large strings are still a problem)
-					if(tmpArtifact == null || tmpArtifact.isEmpty()){
-						//tell the user to enter a valid? name
-						JOptionPane.showMessageDialog(frame,
-							ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
-							ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
-					}
-					else{
-						keepAsking = false;//we have the new artifact name. Break the loop
-					}
+				final String newArtifact = JOptionPane.showInputDialog(frame,
+						ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
+						ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
+				if (newArtifact == null) {
+					return;//the user clicked cancel
 				}
-				newArtifact = tmpArtifact;
+				
+				if (newArtifact.isEmpty()){
+					JOptionPane.showMessageDialog(frame, "Please enter valid artifact name");
+					this.actionExecuted(me);
+					return;
+				}
 				
 				referenceSearch = new UIReferenceSearch(controller.ui);
 				referenceSearch.start(ReferenceGroup.Artifact,
