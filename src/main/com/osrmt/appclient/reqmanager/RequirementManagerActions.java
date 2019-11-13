@@ -170,32 +170,41 @@ public class RequirementManagerActions {
 	public ApplicationAction getSystemNewArtifact() {
 		return new ApplicationAction(ActionGroup.REQMGRSYSTEMNEWARTIFACT, null, new UIActionListener(controller.ui) {
 			public void actionExecuted(ActionEvent me) {
+				
 				final String newArtifact = JOptionPane.showInputDialog(frame,
 						ReferenceServices.getDisplay(SystemMessageFramework.ENTERNEWARTIFACTNAME),
 						ReferenceServices.getDisplay(FormTitleFramework.NEWARTIFACT), JOptionPane.PLAIN_MESSAGE);
-				if (newArtifact != null) {
-					referenceSearch = new UIReferenceSearch(controller.ui);
-					referenceSearch.start(ReferenceGroup.Artifact,
-							ReferenceServices.getMsg(FormTitleFramework.COPYFIELDSSECURITYFROM), true);
-					referenceSearch.setSize(UIProperties.getDIALOG_SIZE_450_330());
-					referenceSearch.addOkActionListener(new UIActionListener(controller.ui) {
-						public void actionExecuted(ActionEvent e) {
-							try {
-								// TODO should force selection before ok
-								if (referenceSearch.getSelectedValue() != null) {
-									SecurityServices.addNewArtifact(newArtifact,
-											referenceSearch.getSelectedValue().getRefId());
-									referenceSearch.dispose();
-									Debug.displayGUIMessage(newArtifact);
-								}
-								resetSystemState();
-							} catch (Exception ex) {
-								Debug.LogException(this, ex);
-							}
-						}
-					});
-					referenceSearch.setVisible(true);
+				if (newArtifact == null) {
+					return;//the user clicked cancel
 				}
+				
+				if (newArtifact.isEmpty()){
+					JOptionPane.showMessageDialog(frame, "Please enter valid artifact name");
+					this.actionExecuted(me);
+					return;
+				}
+				
+				referenceSearch = new UIReferenceSearch(controller.ui);
+				referenceSearch.start(ReferenceGroup.Artifact,
+						ReferenceServices.getMsg(FormTitleFramework.COPYFIELDSSECURITYFROM), true);
+				referenceSearch.setSize(UIProperties.getDIALOG_SIZE_450_330());
+				referenceSearch.addOkActionListener(new UIActionListener(controller.ui) {
+					public void actionExecuted(ActionEvent e) {
+						try {
+							// TODO should force selection before ok
+							if (referenceSearch.getSelectedValue() != null) {
+								SecurityServices.addNewArtifact(newArtifact,
+										referenceSearch.getSelectedValue().getRefId());
+								referenceSearch.dispose();
+								Debug.displayGUIMessage(newArtifact);
+							}
+							resetSystemState();
+						} catch (Exception ex) {
+							Debug.LogException(this, ex);
+						}
+					}
+				});
+				referenceSearch.setVisible(true);
 			}
 		});
 	}
